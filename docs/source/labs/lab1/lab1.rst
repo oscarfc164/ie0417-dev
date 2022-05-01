@@ -35,7 +35,10 @@ eieManager:
 *Crear un puente de comunicacion tal que el eieManager pueda recopilar todas las respuestas y se las presente al cliente
 *permitir que el funcionamiento del API sea independiente del sistema operativo utilizado y los comandos que transiten por el *cohesion*
 *Configurar el API de manera que soporte concurrencia en cantidad de comandos aplicados como la cantidad de dispositivos a los cuales se les envia el comandos
+<<<<<<< HEAD
 
+=======
+>>>>>>> Lab1
 Paso 4:
 
 Estimacion en el tiempo del trabajo
@@ -47,7 +50,10 @@ Manejo de comandos en transmision/recepcion eieManager=
 Diseño eieDevices y respuestas=
 Definicion de grupos de broadcast =
 *Restablecimiento a un punto anterior
+<<<<<<< HEAD
 
+=======
+>>>>>>> Lab1
 Paso 5:
 
 release 1=API
@@ -126,8 +132,6 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 @startuml
 eieManager -- ProxyServer
 eieManager -- Command
-@enduml
-
 @enduml
 
 
