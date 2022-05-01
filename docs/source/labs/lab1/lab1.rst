@@ -35,6 +35,10 @@ eieManager:
 *Crear un puente de comunicacion tal que el eieManager pueda recopilar todas las respuestas y se las presente al cliente
 *permitir que el funcionamiento del API sea independiente del sistema operativo utilizado y los comandos que transiten por el *cohesion*
 *Configurar el API de manera que soporte concurrencia en cantidad de comandos aplicados como la cantidad de dispositivos a los cuales se les envia el comandos
+<<<<<<< HEAD
+
+=======
+>>>>>>> Lab1
 Paso 4:
 
 Estimacion en el tiempo del trabajo
@@ -46,6 +50,10 @@ Manejo de comandos en transmision/recepcion eieManager=
 Diseño eieDevices y respuestas=
 Definicion de grupos de broadcast =
 *Restablecimiento a un punto anterior
+<<<<<<< HEAD
+
+=======
+>>>>>>> Lab1
 Paso 5:
 
 release 1=API
@@ -118,7 +126,6 @@ Ejecutar los comandos y esperar la respuesta correspondiente.
 Command funciona como un patrón de encapsulamiento, es útil para ejecutar funcionamiento lógico entre clases sin necesidad de revelar información detallada entre ellas. Esto es muy importante dado que puede que el servidor contenga información muy confidencial de proveniente de un **eieDevice** o del **Client** que debe ser ejecutada por otro dispositivo sin la necesidad de revelar datos sensibles. 
 
 **Diagramas UML**
-hola
 .. uml::
     @startuml
 
