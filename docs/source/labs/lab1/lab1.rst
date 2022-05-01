@@ -126,10 +126,11 @@ Ejecutar los comandos y esperar la respuesta correspondiente.
 Command funciona como un patrón de encapsulamiento, es útil para ejecutar funcionamiento lógico entre clases sin necesidad de revelar información detallada entre ellas. Esto es muy importante dado que puede que el servidor contenga información muy confidencial de proveniente de un **eieDevice** o del **Client** que debe ser ejecutada por otro dispositivo sin la necesidad de revelar datos sensibles. 
 
 **Diagramas UML**
-.. uml::
-    @startuml
 
-    
+
+.. uml::
+
+    @startuml
 
     class eieManager
     class eieDevice
