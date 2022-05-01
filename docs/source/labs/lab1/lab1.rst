@@ -119,11 +119,44 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 
 **Diagramas UML**
 
-@startuml
+.. uml::
+    @startuml
 
-@startuml
-eieManager -- ProxyServer
-eieManager -- Command
-@enduml
+    
 
-@enduml
+    class eieManager
+    class eieDevice
+    class ConfigHandler{
+        + name
+        + broadcastgroup
+    }
+    class APIServer 
+    class CommandRegistry
+    class DeviceManager
+    class GroupManager
+    class CommandInvoker
+    class TransportClient
+    class TransportServer
+    class CommandManager
+    class Command
+
+
+
+    eieManager --|> ConfigHandler
+    eieManager --|> APIServer
+    eieManager --|> TransportClient
+    eieManager --|> GroupManager
+    eieManager --|> DeviceManager
+    eieManager --|> CommandRegistry
+    CommandRegistry --o CommandInvoker
+    DeviceManager -- eieDevice
+    CommandInvoker -- CommandManager
+
+    TransportClient --* TransportServer
+    eieDevice --|> TransportServer
+    eieDevice --|> CommandManager
+
+    CommandManager --* Command
+
+
+    @enduml
