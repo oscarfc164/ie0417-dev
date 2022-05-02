@@ -1,7 +1,15 @@
 *************
 Laboratorio 1
 *************
++---------------+--------------+
+| Estudiante    |  Carnet      |
++---------------+--------------+
+|| Oscar Fallas | B92861       |
++---------------+--------------+
+
+
 **Planeamiento**
+================
 
 De manera breve, explique cómo se pueden planear los releases de funcionalidad del proyecto para habilitar lo más rápido posible el desarrollo en el equipo del App (externo a eieLabs).
 
@@ -113,6 +121,7 @@ La jerarquia se utiliza cuando ningun de los esquemas organizacionales anteriore
 
 
 **Patrones de diseño**
+======================
 
 Explique cómo se puede aplicar el patrón de diseño Proxy para abstraer la interacción y comunicación con los dispositivos desde eieManager.
 
@@ -127,6 +136,7 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 
 
 **ADD**
+=======
 
 
 EIE Manager:
@@ -164,6 +174,7 @@ El rol que el Manager tiene es controlar los dispositivos de fabrica desde el cl
 Paso 3:
 Para el tercer paso,se calificarán los requerimientos en función a su importancia para los stakeholders y en su impacto a la arquitectura.
 Los requerimientos ya fueron calificados por los stakeholders por lo que quedaran de la siguiente manera:
+
 +------------------------------------------------------------------------------+------------------------+-----------------------+
 | Objetivo de negocio                                                          |  Prioridad Stakeholdes | Prioridad arquitectura|
 +==============================================================================+========================+=======================+
@@ -171,12 +182,12 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 | | para implementar un cliente en un App móvil con GUI. No se puede asumir    |                        |                       |
 | | que este cliente va a utilizar algún lenguaje en específico.               |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Soportar dispositivos heterogéneos, de distintos fabricantes y/o           | Alta                   | Alta                  |
+| | Soportar dispositivos heterogéneos, de distintos fabricantes y/o           | Alta                   | Media                 |
 | | características. Nuevos dispositivos deben ser sencillos de agregar y      |                        |                       |
 | | esto no debe implicar cambios en el API. Además, ciertos dispositivos y    |                        |                       |
 | | casos de uso podrían requerir nuevos protocolos de comunicación.           |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Que el sistema sea capaz de generar una amplia variedad de comandos.       | Alta                   |Media                  |
+| | Que el sistema sea capaz de generar una amplia variedad de comandos.       | Alta                   | Baja                  |
 | | Nuevos comandos deben ser sencillos de agregar y esto no debe implicar     |                        |                       |
 | | cambios en el API.                                                         |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
@@ -184,17 +195,42 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 | | los dispositivos, tal que se soporte el envío de comandos a múltiples      |                        |                       |
 | | dispositivos simultáneamente en los casos de `broadcast`.                  |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Que el sistema tenga alta disponibilidad, siendo capaz de volver a su      | Media                  |Media                  |
+| | Que el sistema tenga alta disponibilidad, siendo capaz de volver a su      | Media                  | Media                 |
 | | operación normal luego de un fallo que genere un cierre del proceso de     |                        |                       |
 | | ``eieManager``, recuperando su estado original.                            |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
 
+Paso 4:
+
++-----------------------------------------------------------------------------+--------------------------------+------------------------+
+| Objetivo de negocio                                                         | Broker Pattern                 | Layer Pattern          | 
++=============================================================================+================================+========================+
+|| Que el API pueda ser fácilmente consumido por otro equipo de desarrollo    |  El patron no                  | Permite portabilidad   |
+|| para implementar un cliente en un App móvil con GUI. No se puede asumir    |  esta dirigido                 | y compatibilidad con   |
+|| que este cliente va a utilizar algún lenguaje en específico.               |  a la modificalidad            | sistemas exteriores    |
++-----------------------------------------------------------------------------+--------------------------------+------------------------+
+|| Soportar dispositivos heterogéneos, de distintos fabricantes y/o           | Este patron restringe el |     | El patron restringe los|
+|| características. Nuevos dispositivos deben ser sencillos de agregar y      | en los protocolos de           | protocolos de          |  
+|| esto no debe implicar cambios en el API. Además, ciertos dispositivos y    | comunicacion.                  | comunicacion           |                 
+|| casos de uso podrían requerir nuevos protocolos de comunicación.           |                                |                        |
++-----------------------------------------------------------------------------+--------------------------------+------------------------+
+|| Que el sistema sea capaz de generar una amplia variedad de comandos.       | Este no funciona debido a que  | Debido a su enfoque a  |
+|| Nuevos comandos deben ser sencillos de agregar y esto no debe implicar     | no esta enfocado en            | la modificabilidad debe| 
+|| cambios en el API.                                                         | modificabilidad.               | ser sencillo de variar |
++-----------------------------------------------------------------------------+--------------------------------+------------------------+
+|| Que el sistema tenga un rendimiento y escalabilidad adecuada al operar con |                                |                        |
+|| los dispositivos, tal que se soporte el envío de comandos a múltiples      |                                |                        |
+|| dispositivos simultáneamente en los casos de `broadcast`.                  |                                |                        |
++-----------------------------------------------------------------------------+--------------------------------+------------------------+
+|| Que el sistema tenga alta disponibilidad, siendo capaz de volver a su      |                                |                        |
+|| operación normal luego de un fallo que genere un cierre del proceso de     |                                |                        |
+|| ``eieManager``, recuperando su estado original.                            |                                |                        |
++-----------------------------------------------------------------------------+--------------------------------+------------------------+
 
 
 
 **Diagramas UML**
-
-
+=================
 .. uml::
 
     @startuml
@@ -235,3 +271,32 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 
     @enduml
+
+* Caso 1: El cliente envía un comando a un dispositivo específico.
+  
+  .. uml::
+
+  @startuml
+  Client -> : CommandInvoker
+
+  alt successful case
+
+      Bob -> Alice: Authentication Accepted
+
+  else some kind of failure
+
+      Bob -> Alice: Authentication Failure
+      group My own label
+      Alice -> Log : Log attack start
+          loop 1000 times
+              Alice -> Bob: DNS Attack
+          end
+      Alice -> Log : Log attack end
+      end
+
+  else Another type of failure
+
+    Bob -> Alice: Please repeat
+
+  end
+  @enduml
