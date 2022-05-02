@@ -124,6 +124,41 @@ Encapsular la información requerida para ejecutar comandos en dispositivos espe
 Ejecutar los comandos y esperar la respuesta correspondiente.
 
 Command funciona como un patrón de encapsulamiento, es útil para ejecutar funcionamiento lógico entre clases sin necesidad de revelar información detallada entre ellas. Esto es muy importante dado que puede que el servidor contenga información muy confidencial de proveniente de un **eieDevice** o del **Client** que debe ser ejecutada por otro dispositivo sin la necesidad de revelar datos sensibles. 
+**ADD**
+EIE Manager:
+El sistema debe ser accesible desde cualquier distribucion de linux.
+El sistema de comuniacion API debe ser funcional independientemente de los dispositivos usados en las terminales (EIE Manager y cliente).
+Los comandos deben ser sencillos de agregar.
+El API debe ser independiente de los comandos usados.
+
+
+Atributo de calidad:
+El sistema debe volver a sus operaciones normales luego de que exista algun error que provoque que se cierre el EIE Manager, volviendo este a su estado original.
+El sistema debe ser eficiente al mandar comandos a distintos grupos de dispositivos simultaneamente (unico dispositivo o grupo de broadcast).
+
+El sistema debe tener un modulo de acceso para diferenciar si el usuario es cliente o si es administrador, dado que el cliente tiene menos privilegios que el administrador por seguridad del sistema.
+El sistema debe ser amigable con el usuario para su uso.
+El sistema debe soportar concurrencia de comandos.
+
+Requerimientos de prioridad:
+Concurrencia de cien comandos al mismo tiempo
+Poder hacer boradcast a 20 dispositivos al mismo tiempo.
+El sistema debe soportar una cuenta de administrador y al menos 20 clientes al mismo tiempo.
+
+
+PASO 2:
+Eiedevice
+Primeramente,al ser la primera iteración correspondiente al proceso ADD se tendrá como unico elemento el sistema entero,por lo que se divide en dos secciones:EieManager
+EieDevice,por tanto se toma un elemento, en este caso, EIE Device el cual tiene como dependencia directa el EieManager,ya que debe recibir comandos de este y luego de ejecutarlos se debe de regresar una respuesta.
+En el apartado de riesgos y dificultades debido a que no se tiene experiencia con un sistema así,por tanto este apartado quedará vacío. El rol que este elemento tiene, es recibir comandos, que le dicen que hacer y dar una respuesta .Este software  será open source.
+
+EieManager
+A la hora de aplicar la segunda iteración es necesario elegir la segunda sección,que sería el EIE Manager el cual tiene como dependencia el cliente, dado que este le dictamina los comandos que irán dirigidos hacia los dispositivos  y tambien tiene como dependencia el Eiedevice, porque de  este recibe la respuesta final que recibirá Client.
+El rol que el Manager tiene es controlar los dispositivos de fabrica desde el cliente y ser capaz de recibir respuestas de comandos y mandarlos de regreso al cliente.
+
+
+Paso 3:
+Para el tercer paso,se calificarán los requerimientos en función a su importancia para los stakeholders y en su impacto a la arquitectura.
 
 **Diagramas UML**
 
