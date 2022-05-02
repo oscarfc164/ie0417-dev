@@ -124,7 +124,11 @@ Encapsular la información requerida para ejecutar comandos en dispositivos espe
 Ejecutar los comandos y esperar la respuesta correspondiente.
 
 Command funciona como un patrón de encapsulamiento, es útil para ejecutar funcionamiento lógico entre clases sin necesidad de revelar información detallada entre ellas. Esto es muy importante dado que puede que el servidor contenga información muy confidencial de proveniente de un **eieDevice** o del **Client** que debe ser ejecutada por otro dispositivo sin la necesidad de revelar datos sensibles. 
+
+
 **ADD**
+
+
 EIE Manager:
 El sistema debe ser accesible desde cualquier distribucion de linux.
 El sistema de comuniacion API debe ser funcional independientemente de los dispositivos usados en las terminales (EIE Manager y cliente).
@@ -142,7 +146,7 @@ El sistema debe soportar concurrencia de comandos.
 
 Requerimientos de prioridad:
 Concurrencia de cien comandos al mismo tiempo
-Poder hacer boradcast a 20 dispositivos al mismo tiempo.
+Poder hacer broadcast a 20 dispositivos al mismo tiempo.
 El sistema debe soportar una cuenta de administrador y al menos 20 clientes al mismo tiempo.
 
 
@@ -159,6 +163,34 @@ El rol que el Manager tiene es controlar los dispositivos de fabrica desde el cl
 
 Paso 3:
 Para el tercer paso,se calificarán los requerimientos en función a su importancia para los stakeholders y en su impacto a la arquitectura.
+Los requerimientos ya fueron calificados por los stakeholders por lo que quedaran de la siguiente manera:
++------------------------------------------------------------------------------+------------------------+-----------------------+
+| Objetivo de negocio                                                          |  Prioridad Stakeholdes | Prioridad arquitectura|
++==============================================================================+========================+=======================+
+| | Que el API pueda ser fácilmente consumido por otro equipo de desarrollo    | Alta                   | Alta                  |
+| | para implementar un cliente en un App móvil con GUI. No se puede asumir    |                        |                       |
+| | que este cliente va a utilizar algún lenguaje en específico.               |                        |                       |
++------------------------------------------------------------------------------+------------------------+-----------------------+
+| | Soportar dispositivos heterogéneos, de distintos fabricantes y/o           | Alta                   | Alta                  |
+| | características. Nuevos dispositivos deben ser sencillos de agregar y      |                        |                       |
+| | esto no debe implicar cambios en el API. Además, ciertos dispositivos y    |                        |                       |
+| | casos de uso podrían requerir nuevos protocolos de comunicación.           |                        |                       |
++------------------------------------------------------------------------------+------------------------+-----------------------+
+| | Que el sistema sea capaz de generar una amplia variedad de comandos.       | Alta                   |Media                  |
+| | Nuevos comandos deben ser sencillos de agregar y esto no debe implicar     |                        |                       |
+| | cambios en el API.                                                         |                        |                       |
++------------------------------------------------------------------------------+------------------------+-----------------------+
+| | Que el sistema tenga un rendimiento y escalabilidad adecuada al operar con | Media                  | Alta                  |
+| | los dispositivos, tal que se soporte el envío de comandos a múltiples      |                        |                       |
+| | dispositivos simultáneamente en los casos de `broadcast`.                  |                        |                       |
++------------------------------------------------------------------------------+------------------------+-----------------------+
+| | Que el sistema tenga alta disponibilidad, siendo capaz de volver a su      | Media                  |Media                  |
+| | operación normal luego de un fallo que genere un cierre del proceso de     |                        |                       |
+| | ``eieManager``, recuperando su estado original.                            |                        |                       |
++------------------------------------------------------------------------------+------------------------+-----------------------+
+
+
+
 
 **Diagramas UML**
 
