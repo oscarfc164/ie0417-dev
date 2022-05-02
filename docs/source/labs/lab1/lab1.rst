@@ -274,29 +274,19 @@ Paso 4:
 
 * Caso 1: El cliente envía un comando a un dispositivo específico.
   
-  .. uml::
 
-  @startuml
-  Client -> : CommandInvoker
+.. uml::
 
-  alt successful case
+    @startuml
+    Client -> Command
 
-      Bob -> Alice: Authentication Accepted
 
-  else some kind of failure
-
-      Bob -> Alice: Authentication Failure
-      group My own label
-      Alice -> Log : Log attack start
-          loop 1000 times
-              Alice -> Bob: DNS Attack
-          end
-      Alice -> Log : Log attack end
-      end
-
-  else Another type of failure
-
-    Bob -> Alice: Please repeat
-
-  end
-  @enduml
+    Command -> CommandInvoker
+    CommandInvoker -> CommandRegistry
+    CommandRegistry -> CommandManager: Command Successful
+    CommandManager -> eieManager
+    eieManager -> DeviceManager
+    DeviceManager -> eieDevice
+    eieDevice -> TransportServer 
+    TransportServer -> Device: Command Sent Successfully
+    @enduml
