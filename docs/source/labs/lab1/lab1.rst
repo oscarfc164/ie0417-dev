@@ -253,8 +253,8 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 || Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
 +=========================+======================================+=========================+===================================================================+
-|| ConfigHandler          | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe- |
-||                        |  sobres dispositivos y grupos        |                         | racion de informacion mas rapida ante errores.                    |
+|| ConfigHandler          | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe  |
+||                        | sobres dispositivos y grupos         |                         | racion de informacion mas rapida ante errores.                    |
 +----------------------------------------------------------------+-------------------------+-------------------------------------------------------------------+
 || APIServer              | Recibe las solicitudes de comandos   | Rendimiento             | Almacena las solicitudes en un campo especifico, ayudando a evitar|
 ||                        | y/o archivos de los clientes         |                         | los traficos de memoria por saturacion.                           |
