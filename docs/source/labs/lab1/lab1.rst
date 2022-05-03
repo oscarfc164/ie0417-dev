@@ -248,6 +248,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 **Paso 5**: Instanciar los elementos arquitectonicos y definir resposabilidades
 
+*eieManager*
 
 +-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
 || Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                          |
@@ -275,8 +276,9 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 +-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
 
 
-
 *eieDevice*
+
+
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 || Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
 +=========================+======================================+=========================+===================================================================+
@@ -291,7 +293,6 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 
 
-**Paso 6**: 
 
 **Diagramas UML**
 =================
