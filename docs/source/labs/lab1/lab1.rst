@@ -253,42 +253,42 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 | Elemento arquitectonico | Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
 +=========================+======================================+=========================+===================================================================+
-| ConfigHandler           | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe- |
-|                         |  sobres dispositivos y grupos        |                         | racion de informacion mas rapida ante errores.                    |
+|| ConfigHandler          | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe- |
+||                        |  sobres dispositivos y grupos        |                         | racion de informacion mas rapida ante errores.                    |
 +----------------------------------------------------------------+-------------------------+-------------------------------------------------------------------+
-| APIServer               | Recibe las solicitudes de comandos   | Rendimiento             | Almacena las solicitudes en un campo especifico, ayudando a evitar|
-|                         | y/o archivos de los clientes         |                         | los traficos de memoria por saturacion.                           |
+|| APIServer              | Recibe las solicitudes de comandos   | Rendimiento             | Almacena las solicitudes en un campo especifico, ayudando a evitar|
+||                        | y/o archivos de los clientes         |                         | los traficos de memoria por saturacion.                           |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| DeviceManager           | Administración del ciclo de          | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de |
-|                         | vida de los dispositivos.            |                         | manera mas sencilla ante errores.                                 |
+|| DeviceManager          | Administración del ciclo de          | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de |
+||                        | vida de los dispositivos.            |                         | manera mas sencilla ante errores.                                 |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| GroupManager            | Resolución de dispositivos perte-    | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de |
-|                         | necientes a grupos broadcast.        |                         | manera mas sencilla ante errores.                                 |
+|| GroupManager           | Resolución de dispositivos perte-    | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de |
+||                        | necientes a grupos broadcast.        |                         | manera mas sencilla ante errores.                                 |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| CommandRegistry         | Registro de Comandos que son soporta-| Usabilidad/             | Al definir que acciones puede ejecutar un usuario en especifico le|
-|                         | dos por el usuario.                  | Seguridad               | hace mas amigable la interaccion con el ambiente.                 |
+|| CommandRegistry        | Registro de Comandos que son soporta-| Usabilidad/             | Al definir que acciones puede ejecutar un usuario en especifico le|
+||                        | dos por el usuario.                  | Seguridad               | hace mas amigable la interaccion con el ambiente.                 |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| CommandInvoker          | Controla la ejecucion de comandos    | Usabilidad              | Acciona el comando de manera automatica, sin la necesidad que el  |
-|                         | solicitados por el cliente.          |                         | cliente tenga que activarlo por linea de codigo                   |
+|| CommandInvoker         | Controla la ejecucion de comandos    | Usabilidad              | Acciona el comando de manera automatica, sin la necesidad que el  |
+||                        | solicitados por el cliente.          |                         | cliente tenga que activarlo por linea de codigo                   |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| TransportClient         | Abstrae el protocolo de comunicacion | Rendimiento             | Al tener una comunicacion entre protocolos optimiza los tiempos   |
-|                         | con el dispositivo.                  |                         | de respuesta e incrementa el rendimiento.                         |
+|| TransportClient        | Abstrae el protocolo de comunicacion | Rendimiento             | Al tener una comunicacion entre protocolos optimiza los tiempos   |
+||                        | con el dispositivo.                  |                         | de respuesta e incrementa el rendimiento.                         |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 
 
 
 *eieDevice*
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| Elemento arquitectonico | Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
+|| Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
 +=========================+======================================+=========================+===================================================================+
-| TransportServer         | Responde solicitudes provenientes de | Rendimiento             | Al tener una comunicacion entre protocolos optimiza los tiempos   |
-|                         | *TransportClient*                    |                         | de respuesta e incrementa el rendimiento.                         |
+|| TransportServer        | Responde solicitudes provenientes de | Rendimiento             | Al tener una comunicacion entre protocolos optimiza los tiempos   |
+||                        | *TransportClient*                    |                         | de respuesta e incrementa el rendimiento.                         |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| CommandManager          | Registro y ejecucion de comandos sop-| Usabilidad/             | Al definir que acciones puede ejecutar un usuario en especifico le|
-|                         | ortados por el dispositivo           | Seguridad               | hace mas amigable la interaccion con el ambiente y mas seguro.    |
+|| CommandManager         | Registro y ejecucion de comandos sop-| Usabilidad/             | Al definir que acciones puede ejecutar un usuario en especifico le|
+||                        | ortados por el dispositivo           | Seguridad               | hace mas amigable la interaccion con el ambiente y mas seguro.    |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| Command                 | Almancena la funcionabilidad del     | Usabilidad              | Almacenando la funcion de cada comando crea una serie de acciones |
-|                         | comando                              |                         | automaticas que el dispositivo ya no tiene que hacer.             |
+|| Command                | Almancena la funcionabilidad del     | Usabilidad              | Almacenando la funcion de cada comando crea una serie de acciones |
+||                        | comando                              |                         | automaticas que el dispositivo ya no tiene que hacer.             |
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 
 
@@ -296,41 +296,44 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 **Diagramas UML**
 =================
+
 .. uml::
     @startuml
-        class eieManager
-        class eieDevice
-        class ConfigHandler{
-            + name
-            + broadcastgroup
-        }
-        class APIServer 
-        class DeviceManager
-        class GroupManager
-        class CommandInvoker
-        class TransportClient
-        class TransportServer
-        class CommandManager
-        class Command
-        class CommandRegistry
+    class eieManager
+    class eieDevice
+    class ConfigHandler{
+        + name
+        + broadcastgroup
+    }
+    class APIServer 
+    class DeviceManager
+    class GroupManager
+    class CommandInvoker
+    class TransportClient
+    class TransportServer
+    class CommandManager
+    class Command
+    class CommandRegistry
 
-        eieManager <|-down- APIServer
-        eieManager <|-down- ConfigHandler
-        APIServer -- ConfigHandler
-        ConfigHandler *-- GroupManager
-        ConfigHandler *-- DeviceManager
-        GroupManager --o CommandRegistry
-        DeviceManager --o CommandRegistry
-        CommandRegistry o-- CommandInvoker
-        CommandInvoker -- TransportClient
+    eieManager <|-down- APIServer
+    eieManager <|-down- ConfigHandler
+    APIServer -- ConfigHandler
+    ConfigHandler *-- GroupManager
+    ConfigHandler *-- DeviceManager
+    GroupManager --o CommandRegistry
+    DeviceManager --o CommandRegistry
+    CommandRegistry o-- CommandInvoker
+    CommandInvoker -- TransportClient
 
-        eieDevice <|-down- CommandManager
-        eieDevice <|-down- TransportServer
-        CommandManager *-- Command
+    eieDevice <|-down- CommandManager
+    eieDevice <|-down- TransportServer
+    CommandManager *-- Command
 
 
     TransportClient -- TransportServer
     @enduml
+
+
 
 * Caso 1: El cliente envía un comando a un dispositivo específico. 
   
@@ -374,7 +377,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 * Caso 2: El cliente envía un comando a un grupo de broadcast.
 
-..uml::
+.. uml::
   @startuml
   Client -> APIServer: Command Request
   
