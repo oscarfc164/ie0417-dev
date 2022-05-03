@@ -249,30 +249,30 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 **Paso 5**: Instanciar los elementos arquitectonicos y definir resposabilidades
 
 
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
-+=========================+======================================+=========================+===================================================================+
-|| ConfigHandler          | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe  |
-||                        | sobres dispositivos y grupos         |                         | racion de informacion mas rapida ante errores.                    |
-+----------------------------------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| APIServer              | Recibe las solicitudes de comandos   | Rendimiento             | Almacena las solicitudes en un campo especifico, ayudando a evitar|
-||                        | y/o archivos de los clientes         |                         | los traficos de memoria por saturacion.                           |
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| DeviceManager          | Administración del ciclo de          | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de |
-||                        | vida de los dispositivos.            |                         | manera mas sencilla ante errores.                                 |
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| GroupManager           | Resolución de dispositivos perte-    | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de |
-||                        | necientes a grupos broadcast.        |                         | manera mas sencilla ante errores.                                 |
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| CommandRegistry        | Registro de Comandos que son soporta-| Usabilidad/             | Al definir que acciones puede ejecutar un usuario en especifico le|
-||                        | dos por el usuario.                  | Seguridad               | hace mas amigable la interaccion con el ambiente.                 |
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| CommandInvoker         | Controla la ejecucion de comandos    | Usabilidad              | Acciona el comando de manera automatica, sin la necesidad que el  |
-||                        | solicitados por el cliente.          |                         | cliente tenga que activarlo por linea de codigo                   |
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-|| TransportClient        | Abstrae el protocolo de comunicacion | Rendimiento             | Al tener una comunicacion entre protocolos optimiza los tiempos   |
-||                        | con el dispositivo.                  |                         | de respuesta e incrementa el rendimiento.                         |
-+-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                          |
++=========================+======================================+=========================+======================================================================+
+|| ConfigHandler          | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe     |
+||                        | sobres dispositivos y grupos.        |                         | racion de informacion mas rapida ante errores.                       |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| APIServer              | Recibe las solicitudes de comandos   | Rendimiento             | Almacena las solicitudes en un campo especifico, ayudando a evitar   |
+||                        | y/o archivos de los clientes.        |                         | los traficos de memoria por saturacion.                              |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| DeviceManager          | Administración del ciclo de          | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de    |
+||                        | vida de los dispositivos.            |                         | manera mas sencilla ante errores.                                    |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| GroupManager           | Resolución de dispositivos perte-    | Recuperabilidad         | Al almacenar los ciclos independientemente se pueden recuperar de    |
+||                        | necientes a grupos broadcast.        |                         | manera mas sencilla ante errores.                                    |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| CommandRegistry        | Registro de Comandos que son soporta-| Usabilidad/             | Al definir que acciones puede ejecutar un usuario en especifico le   |
+||                        | dos por el usuario.                  | Seguridad               | hace mas amigable la interaccion con el ambiente.                    |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| CommandInvoker         | Controla la ejecucion de comandos    | Usabilidad              | Acciona el comando de manera automatica, sin la necesidad que el     |
+||                        | solicitados por el cliente.          |                         | cliente tenga que activarlo por linea de codigo.                     |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
+|| TransportClient        | Abstrae el protocolo de comunicacion | Rendimiento             | Al tener una comunicacion entre protocolos optimiza los tiempos      | 
+||                        | con el dispositivo.                  |                         | de respuesta e incrementa el rendimiento.                            |
++-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
 
 
 
