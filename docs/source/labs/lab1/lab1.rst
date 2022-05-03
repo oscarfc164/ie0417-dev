@@ -297,7 +297,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 **Diagramas UML**
 =================
 
-.. uml::
+.. note::
     @startuml
     class eieManager
     class eieDevice
@@ -338,7 +338,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 * Caso 1: El cliente envía un comando a un dispositivo específico. 
   
 
-.. uml::
+.. note::
   @startuml
   Client -> APIServer: Command Request
   
@@ -377,7 +377,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 * Caso 2: El cliente envía un comando a un grupo de broadcast.
 
-.. uml::
+.. note::
   @startuml
   Client -> APIServer: Command Request
   
