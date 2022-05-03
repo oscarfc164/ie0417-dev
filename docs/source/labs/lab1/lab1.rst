@@ -242,7 +242,6 @@ Paso 4:
         + broadcastgroup
     }
     class APIServer 
-    class CommandRegistry
     class DeviceManager
     class GroupManager
     class CommandInvoker
@@ -250,24 +249,30 @@ Paso 4:
     class TransportServer
     class CommandManager
     class Command
+    class CommandRegistry
+
+    eieManager <|-- DeviceManager:inheritance
+    eieManager <|-- ConfigHandler:inheritance
+    eieManager <|-- GroupManager:inheritance
+    eieManager <|-- APIServer:inheritance
+    ConfigHandler *-- DeviceManager:composition
+    ConfigHandler *-- GroupManager:composition
+    DeviceManager o-- CommandRegistry:aggregation
+    GroupManager o-- CommandRegistry:aggregation
+    CommandRegistry *-- CommandInvoker: composition
+    APIServer -- ConfigHandler:association
+    APIServer --* TransportClient:composition
 
 
 
-    eieManager --|> ConfigHandler
-    eieManager --|> APIServer
-    eieManager --|> TransportClient
-    eieManager --|> GroupManager
-    eieManager --|> DeviceManager
-    eieManager --|> CommandRegistry
-    CommandRegistry --o CommandInvoker
-    DeviceManager -- eieDevice
-    CommandInvoker -- CommandManager
 
-    TransportClient --* TransportServer
-    eieDevice --|> TransportServer
-    eieDevice --|> CommandManager
+    eieDevice <|-- TransportServer:inheritance
+    eieDevice <|-- CommandManager:inheritance
+    CommandManager *-- Command:composition
+    Command --* CommandInvoker:composition
+    TransportClient --o TransportServer:aggregation
+    
 
-    CommandManager --* Command
 
 
     @enduml
@@ -284,9 +289,11 @@ Paso 4:
     Command -> CommandInvoker
     CommandInvoker -> CommandRegistry
     CommandRegistry -> CommandManager: Command Successful
-    CommandManager -> eieManager
+    CommandManager -> eieManager: Command Uploaded
     eieManager -> DeviceManager
-    DeviceManager -> eieDevice
+    DeviceManager -> eieDevice: Command sent
     eieDevice -> TransportServer 
-    TransportServer -> Device: Command Sent Successfully
+    TransportServer -> Device: Command works Successfully
     @enduml
+
+* Caso 2: 
