@@ -377,7 +377,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 * Caso 2: El cliente envía un comando a un grupo de broadcast.
 
-.. note::
+.. UML::
   @startuml
   Client -> APIServer: Command Request
   
