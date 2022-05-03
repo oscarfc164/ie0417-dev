@@ -152,25 +152,25 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 * El sistema debe soportar una cuenta de administrador y al menos 20 clientes al mismo tiempo.
 
 +---------------------------------------------------------------------+
-| **Atributos de Calidad**                                                |
-+=====================================================================+
-| Atributo        | Enunciado                                         |
+|| **Atributos de Calidad**                                           |
++=================+===================================================+
+|| Atributo       |  Enunciado                                        |
 +-----------------+---------------------------------------------------+
-|                 | El sistema debe volver a sus operaciones normales |
-| Recuperabilidad | luego de que exista algun error.                  |
-|                 |                                                   |
+||                | El sistema debe volver a sus operaciones normales |
+|| Recuperabilidad| luego de que exista algun error.                  |
+||                |                                                   |
 +-----------------+---------------------------------------------------+
-|                 | El sisstema debe ser eficiente al mandar comandos |
-| Rendimiento     | a distintos grupos de dispositivos (uno o grupo). |
-|                 |                                                   |
+||                | El sisstema debe ser eficiente al mandar comandos |
+|| Rendimiento    | a distintos grupos de dispositivos (uno o grupo). |
+||                |                                                   |
 +-----------------+---------------------------------------------------+
-|                 | El sistema debe tener un modulo de acceso para    |
-| Seguridad       | diferenciar un usuario cliente de un administrador|
-|                 | dado los privilegios de c/u.                      |
+||                | El sistema debe tener un modulo de acceso para    |
+|| Seguridad      | diferenciar un usuario cliente de un administrador|
+||                | dado los privilegios de c/u.                      |
 +-----------------+---------------------------------------------------+
-|                 | El sistema debe ser amigable con el usuario, dado |
-| Usabilidad      | que no se puede suponer el conocimiento del       |
-|                 | lenguaje del cliente.                             |
+||                | El sistema debe ser amigable con el usuario, dado |
+|| Usabilidad     | que no se puede suponer el conocimiento del       |
+||                | lenguaje del cliente.                             |
 +-----------------+---------------------------------------------------+
 
 
@@ -195,28 +195,28 @@ Para el tercer paso,se calificarán los requerimientos en función a su importan
 Los requerimientos ya fueron calificados por los stakeholders por lo que quedaran de la siguiente manera:
 
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| Objetivo de negocio                                                          |  Prioridad Stakeholdes | Prioridad arquitectura|
+|| Objetivo de negocio                                                         |  Prioridad Stakeholdes | Prioridad arquitectura|
 +==============================================================================+========================+=======================+
-| | Que el API pueda ser fácilmente consumido por otro equipo de desarrollo    | Alta                   | Alta                  |
-| | para implementar un cliente en un App móvil con GUI. No se puede asumir    |                        |                       |
-| | que este cliente va a utilizar algún lenguaje en específico.               |                        |                       |
+|| Que el API pueda ser fácilmente consumido por otro equipo de desarrollo     | Alta                   | Alta                  |
+|| para implementar un cliente en un App móvil con GUI. No se puede asumir     |                        |                       |
+|| que este cliente va a utilizar algún lenguaje en específico.                |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Soportar dispositivos heterogéneos, de distintos fabricantes y/o           | Alta                   | Media                 |
-| | características. Nuevos dispositivos deben ser sencillos de agregar y      |                        |                       |
-| | esto no debe implicar cambios en el API. Además, ciertos dispositivos y    |                        |                       |
-| | casos de uso podrían requerir nuevos protocolos de comunicación.           |                        |                       |
+|| Soportar dispositivos heterogéneos, de distintos fabricantes y/o            | Alta                   | Media                 |
+|| características. Nuevos dispositivos deben ser sencillos de agregar y       |                        |                       |
+|| esto no debe implicar cambios en el API. Además, ciertos dispositivos y     |                        |                       |
+|| casos de uso podrían requerir nuevos protocolos de comunicación.            |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Que el sistema sea capaz de generar una amplia variedad de comandos.       | Alta                   | Baja                  |
-| | Nuevos comandos deben ser sencillos de agregar y esto no debe implicar     |                        |                       |
-| | cambios en el API.                                                         |                        |                       |
+|| Que el sistema sea capaz de generar una amplia variedad de comandos.        | Alta                   | Baja                  |
+|| Nuevos comandos deben ser sencillos de agregar y esto no debe implicar      |                        |                       |
+|| cambios en el API.                                                          |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Que el sistema tenga un rendimiento y escalabilidad adecuada al operar con | Media                  | Alta                  |
-| | los dispositivos, tal que se soporte el envío de comandos a múltiples      |                        |                       |
-| | dispositivos simultáneamente en los casos de `broadcast`.                  |                        |                       |
+|| Que el sistema tenga un rendimiento y escalabilidad adecuada al operar con  | Media                  | Alta                  |
+|| los dispositivos, tal que se soporte el envío de comandos a múltiples       |                        |                       |
+|| dispositivos simultáneamente en los casos de `broadcast`.                   |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
-| | Que el sistema tenga alta disponibilidad, siendo capaz de volver a su      | Media                  | Media                 |
-| | operación normal luego de un fallo que genere un cierre del proceso de     |                        |                       |
-| | ``eieManager``, recuperando su estado original.                            |                        |                       |
+|| Que el sistema tenga alta disponibilidad, siendo capaz de volver a su       | Media                  | Media                 |
+|| operación normal luego de un fallo que genere un cierre del proceso de      |                        |                       |
+|| ``eieManager``, recuperando su estado original.                             |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
 
 **Paso 4**: Patrones afines a las caracteristicas arquitectonicas
@@ -251,7 +251,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 *eieManager*
 
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
-| Elemento arquitectonico | Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
+|| Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
 +=========================+======================================+=========================+===================================================================+
 || ConfigHandler          | Contiene y configura informacion     | Recuperabilidad         | Al contener especificamente las configuracion ayuda a una recupe- |
 ||                        |  sobres dispositivos y grupos        |                         | racion de informacion mas rapida ante errores.                    |
