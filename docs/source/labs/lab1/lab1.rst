@@ -76,6 +76,7 @@ tiempo=?
 recursos=?
 
 **Requerimientos**
+==================
 
 Los requerimientos funcionales son las acciones esenciales en el software que reciben y procesan las entradas para generar salidas, usualmente los requerimientos funcionales son enunciados como "el sistema deberia..." y deben cumplir los siguientes principios:
 
@@ -135,11 +136,10 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 
 
 **Atribute Driven Desing**
-=======
+==========================
 
 **Paso 1:** Confirmar la suficiente informacion de requerimientos
 
-*eieManager*
 
 **Requerimientos Priorizados**
 
@@ -248,7 +248,6 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 **Paso 5**: Instanciar los elementos arquitectonicos y definir resposabilidades
 
-*eieManager*
 
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 || Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
