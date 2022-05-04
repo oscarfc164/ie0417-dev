@@ -15,9 +15,9 @@ De manera breve, explique cómo se pueden planear los releases de funcionalidad 
 
 Utilice conceptos de planeamiento a largo plazo con metodologías Agile (Quiz 2).
 
-Agile
 
-Paso 1: 
+Paso 1:
+^^^^^^^
 
 Para iniciar con el proyecto se tiene la idea general de este ultimo: Se tiene un proyecto en el cual se tendrá 
 dos secciones importantes el eieManager que se encarga de comunicarse con los dispositivos de la empresa,este eieManager debe
@@ -28,56 +28,91 @@ comandos desde el eieManager actuar de acuerdo a estos comandos recibidos y de s
 Se crearan procesos para construir un eieManager bastante solido,una base comunicacion AP queI en la pueda ser 
 fácilmente consumido por otro equipo de desarrollo
 para implementar un cliente en un App móvil con GUI.
+
 Paso 2:
+^^^^^^^
 
 Al ser un diseño de software los aspectos de mas valor caerán en la estabilidad y modificabilidad de diseño API aplicado.
 
 Paso 3:
+^^^^^^^
 
-eieManager:
-Comandos 
--Definir los comandos predefinidos que se enviaran a los eieDevices
--Esquematizar el rango de dispositivos aplicado por cada uno de los comandos
-API 
--Iniciar el API bajo un protocolo de comunicacion RPC
--Crear un puente de comunicacion tal que el eieManager pueda recopilar todas las respuestas y se las presente al cliente
--Permitir que el funcionamiento del API sea independiente del sistema operativo utilizado y los comandos que transiten por el *cohesion*
--Configurar el API de manera que soporte concurrencia en cantidad de comandos aplicados como la cantidad de dispositivos a los cuales se les envia el comandos
--Restablecimiento a un punto anterior
-<<<<<<< HEAD
+eieManager
+""""""""""
 
-=======
->>>>>>> Lab1
+*Comandos*
+
+* Definir los comandos predefinidos que se enviaran a los eieDevices
+* Esquematizar el rango de dispositivos aplicado por cada uno de los comandos
+  
+*API*
+
+* Iniciar el API bajo un protocolo de comunicacion RPC
+* Crear un puente de comunicacion tal que el eieManager pueda recopilar todas las respuestas y se las presente al cliente
+* Permitir que el funcionamiento del API sea independiente del sistema operativo utilizado y los comandos que transiten por el *cohesion*
+* Configurar el API de manera que soporte concurrencia en cantidad de comandos aplicados como la cantidad de dispositivos a los cuales se les envia el comandos
+* Restablecimiento a un punto anterior
+
 Paso 4:
-
-Estimacion en el tiempo del trabajo
-Creacion algoritmo API=3 semanas
-Aumentar adaptabilidad y ancho de banda de API= 2 semanas
-Aplicación protocolo comunicacion API= 2 semanas
-Diseño de los algoritmos usados por el eieManager=4 semanas
-Manejo de comandos en transmision/recepcion eieManager=2 semanas
-Diseño eieDevices y respuestas=4 semanas
-Definicion de grupos de broadcast =2 semanas
+^^^^^^^
 
 
-=======
++--------------------------------------------------+
+|| **Estimacion en el tiempo de trabajo**          |
++===========================+======================+
+|| Tarea                    | Estimacion de tiempo |
++---------------------------+----------------------+
+|| Creacion algoritmo API   | 3 semanas            |
+||                          |                      |
++---------------------------+----------------------+
+|| Aumento de adaptabilidad | 2 semanas            |
+|| y ancho de banda de API  |                      |
++---------------------------+----------------------+
+|| Aplicacion protocolo de  | 2 semanas            |
+|| comunicacion             |                      |
++---------------------------+----------------------+
+|| Diseño de los algoritmos | 4 semanas            |
+|| para *eieManager         |                      |
++---------------------------+----------------------+
+|| Manejo de comandos Para  | 2 semanas            |
+|| para trasmision/recepcion|                      |
+|| de eieManager            |                      |
++---------------------------+----------------------+
+|| Diseno de eieDevice y    | 4 semanas            |
+|| respuestas               |                      |
++---------------------------+----------------------+
+|| Definicion de grupos     | 2 semanas            |
+|| de broadcast             |                      |
++---------------------------+----------------------+
+
+
 
 Paso 5:
+^^^^^^^
 
-release 1=API
-release 2=eieManager
-release 3=eieDevice
-release 4=proyecto final
+- release 1=API
+- release 2=eieManager
+- release 3=eieDevice
+- release 4=proyecto final
 
 Paso 6:
+^^^^^^^
 
-Scope: Un proyecto que permita el manejo de una empresa desde clientes externos,capacidad de trabajar bajo concurrencia y una sumamente adaptable a cambios tanto en software 
+**Scope**: Un proyecto que permita el manejo de una empresa desde clientes externos,capacidad de trabajar bajo concurrencia y una sumamente adaptable a cambios tanto en software 
 como en metodos de conexion
-tiempo=5 meses
-recursos=?
+- tiempo=5 meses
+- recursos=?
+
+
 Paso 7:
+^^^^^^^
+
 Luego de reunirse con el equipo de stakeholders se aceptó el planeamiento realizado.
+
+
 Paso 8:
+^^^^^^^
+
 Dado que con la filosofía de agile a largo plazo,el proyecto seguirá en desarrollo,dado que se requiere que el proyecto posea gran modificabilidad,los siguientes releases irán enfocados en el grado de cambio y adaptación del EieManager,integración de nuevos comandos y nuevos protocolos de comunicación,tambien se espera mejoras en la cantidad de comandos que se pueden enviar a los devices sin quebrar el sistema de comunicación
 
 **Requerimientos**
@@ -103,36 +138,54 @@ C) Tener una respuesta a las situaciones anormales.
 Es importante mencionar que estos requerimientos funcionales pueden ser divididos en subprocesos, pero no quiere decir que el software tambien lo hara.
 
 Requerimientos funcionales: 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 User class A.3:
+""""""""""""""""
+
 Cuando el sistema requiere de usuarios con diferentes privilegios en el software, por ejemplo, un "admin" y un "client", en este caso queremos tener diferentes accesos como el de un cliente y un servidor.
 
 Feature A.5
+""""""""""""
+
 Se refiere cuando es un deseo exterior por el sistema que puede necesitar entradas (inputs) y afecta al resultado deseado. En el proyecto se usaria dado que el cliente puede dar entradas y modificar la respuesta del administrador. 
 
 Response A.6 
+""""""""""""""
+
 Conjunto de funciones que permite un sistema generar una respuesta deseada, como cuando hay una cuenta de un sistema que tiene que poder acceder a diferentes caracteristicas como, lista de empleados, salarios, horarios y todos los relacionados. En el proyecto constara de un administrador que pueda tener de facil acceso los distintos dispositivos e interactuar con ellos.
 
 No funcionales:
+^^^^^^^^^^^^^^^
+
 System mode A.1 & A.2
+""""""""""""""""""""""
+
 Algunos sistemas necesitan tener diferenes modos de funcioanlidad, por ejemplo, uno en caso de emergencia, o de simulacro, o de entrenamiento. En este caso no se utilizara ningun modo especial en especifico.
 
 Objects A.4
+""""""""""""
+
 Los objetos son caracteristicas que el sistema puede ofrecer, como por ejemplo, conexion con sensores, bases de datos, entre otros. En este caso no se tiene contacto con atributos de ese indole, entonces no se usara.
+
 Stimulus A.6
+""""""""""""
 Los Stimulus describen diferentes funciones dependiendo del tema, pero en este caso no se utilizaran temas complejos.
+
 Functional Hierarchy A.7
+""""""""""""""""""""""""
+
 La jerarquia se utiliza cuando ningun de los esquemas organizacionales anteriores no funcionan, entonces las funciones se organizan segun su tipo, o relacion de sus atributos entre si, y no se utilizara dado que algunos de los esquemas mencionados si se utilizaran.
 
 
 **Patrones de diseño**
 ======================
 
-Explique cómo se puede aplicar el patrón de diseño Proxy para abstraer la interacción y comunicación con los dispositivos desde eieManager.
+**Explique cómo se puede aplicar el patrón de diseño Proxy para abstraer la interacción y comunicación con los dispositivos desde eieManager.**
 
 Lo primero es definir Proxy como una interfaz funcionando para algún otro software, en este caso de network conection entre los dispositivos y el servidor eieManager. Proxy se utiliza como una clase más de **eieManager** trabajando como un servidor remoto donde la información que viaja desde los computadores conocidos como **eieDevices** llegando a **eieManager**, ejecutando acciones de diseno y enviar ya sea devuelta al dispositivo o ya el **Client**.  
 
-Explique cómo se puede aplicar el patrón de diseño Command para desacoplar los procesos de:
+**Explique cómo se puede aplicar el patrón de diseño Command para desacoplar los procesos de:**
 
 Encapsular la información requerida para ejecutar comandos en dispositivos específicos.
 Ejecutar los comandos y esperar la respuesta correspondiente.
@@ -143,10 +196,11 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 **Atribute Driven Desing**
 ==========================
 
-**Paso 1:** Confirmar la suficiente informacion de requerimientos
+Paso 1: Confirmar la suficiente informacion de requerimientos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-**Requerimientos Priorizados**
+Requerimientos Priorizados
+""""""""""""""""""""""""""""""
 
 * El sistema debe ser accesible desde cualquier distribucion de linux.
 * El sistema de comuniacion API debe ser funcional independientemente de los dispositivos usados en las terminales (EIE Manager y cliente).
@@ -155,6 +209,10 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 * Concurrencia de cien comandos al mismo tiempo
 * Poder hacer broadcast a 20 dispositivos al mismo tiempo.
 * El sistema debe soportar una cuenta de administrador y al menos 20 clientes al mismo tiempo.
+
+Atributos de Calidad
+""""""""""""""""""""
+
 
 +---------------------------------------------------------------------+
 || **Atributos de Calidad**                                           |
@@ -179,22 +237,30 @@ Command funciona como un patrón de encapsulamiento, es útil para ejecutar func
 +-----------------+---------------------------------------------------+
 
 
-**Paso 2**: Elegir un elemento para descomponer
+Paso 2: Elegir un elemento para descomponer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Dado que el sistema necesita la interaccion de dos modulos uno como administrador
 y otro como controlador de dispositivos, se separa de la siguiente manera:
 
-*Eiedevice*
+Eiedevice
+""""""""""
+
 Primeramente,al ser la primera iteración correspondiente al proceso ADD se tendrá como unico elemento el sistema entero,por lo que se divide en dos secciones:EieManager
 EieDevice,por tanto se toma un elemento, en este caso, EIE Device el cual tiene como dependencia directa el EieManager,ya que debe recibir comandos de este y luego de ejecutarlos se debe de regresar una respuesta.
 En el apartado de riesgos y dificultades debido a que no se tiene experiencia con un sistema así,por tanto este apartado quedará vacío. El rol que este elemento tiene, es recibir comandos, que le dicen que hacer y dar una respuesta .Este software  será open source.
 
-*EieManager*
+EieManager
+""""""""""
+
 A la hora de aplicar la segunda iteración es necesario elegir la segunda sección,que sería el EIE Manager el cual tiene como dependencia el cliente, dado que este le dictamina los comandos que irán dirigidos hacia los dispositivos  y tambien tiene como dependencia el Eiedevice, porque de  este recibe la respuesta final que recibirá Client.
 El rol que el Manager tiene es controlar los dispositivos de fabrica desde el cliente y ser capaz de recibir respuestas de comandos y mandarlos de regreso al cliente.
 
 
-**Paso 3**: Identificacion de drivers arquitectonicos
+
+Paso 3: Identificacion de drivers arquitectonicos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Para el tercer paso,se calificarán los requerimientos en función a su importancia para los stakeholders y en su impacto a la arquitectura.
 Los requerimientos ya fueron calificados por los stakeholders por lo que quedaran de la siguiente manera:
@@ -224,7 +290,8 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 || ``eieManager``, recuperando su estado original.                             |                        |                       |
 +------------------------------------------------------------------------------+------------------------+-----------------------+
 
-**Paso 4**: Patrones afines a las caracteristicas arquitectonicas
+Paso 4: Patrones afines a las caracteristicas arquitectonicas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-----------------------------------------------------------------------------+--------------------------------+------------------------+
 | Requerimientos arquitectonicos                                              | Broker Pattern                 | Layer Pattern          | 
@@ -251,9 +318,12 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 || ``eieManager``, recuperando su estado original.                            | recuperar estados.             | cion de datos.         |
 +-----------------------------------------------------------------------------+--------------------------------+------------------------+
 
-**Paso 5**: Instanciar los elementos arquitectonicos y definir resposabilidades
+Paso 5: Instanciar los elementos arquitectonicos y definir resposabilidades
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*eieManager*
+
+eieManager
+""""""""""
 
 +-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
 || Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                          |
@@ -281,8 +351,8 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 +-------------------------+--------------------------------------+-------------------------+----------------------------------------------------------------------+
 
 
-*eieDevice*
-
+eieDevice
+""""""""""
 
 +-------------------------+--------------------------------------+-------------------------+-------------------------------------------------------------------+
 || Elemento arquitectonico| Responsabilidad                      | Atributo de Calidad     | Explicacion                                                       |
@@ -301,6 +371,9 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 
 **Diagramas UML**
 =================
+
+Diagrama de Clases
+^^^^^^^^^^^^^^^^^^
 
 .. uml::
 
@@ -339,6 +412,9 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
     TransportClient -- TransportServer
     @enduml
 
+
+Diagramas de Secuencia
+^^^^^^^^^^^^^^^^^^^^^^
 
 
 * Caso 1: El cliente envía un comando a un dispositivo específico. 
