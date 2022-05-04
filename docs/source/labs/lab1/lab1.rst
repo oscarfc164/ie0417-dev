@@ -35,14 +35,15 @@ Al ser un diseño de software los aspectos de mas valor caerán en la estabilida
 Paso 3:
 
 eieManager:
-******************** comandos ***********************
-*Definir los comandos predefinidos que se enviaran a los eieDevices
-*Esquematizar el rango de dispositivos aplicado por cada uno de los comandos
-********************* API *****************************
-*Iniciar el API bajo un protocolo de comunicacion RPC
-*Crear un puente de comunicacion tal que el eieManager pueda recopilar todas las respuestas y se las presente al cliente
-*permitir que el funcionamiento del API sea independiente del sistema operativo utilizado y los comandos que transiten por el *cohesion*
-*Configurar el API de manera que soporte concurrencia en cantidad de comandos aplicados como la cantidad de dispositivos a los cuales se les envia el comandos
+Comandos 
+-Definir los comandos predefinidos que se enviaran a los eieDevices
+-Esquematizar el rango de dispositivos aplicado por cada uno de los comandos
+API 
+-Iniciar el API bajo un protocolo de comunicacion RPC
+-Crear un puente de comunicacion tal que el eieManager pueda recopilar todas las respuestas y se las presente al cliente
+-Permitir que el funcionamiento del API sea independiente del sistema operativo utilizado y los comandos que transiten por el *cohesion*
+-Configurar el API de manera que soporte concurrencia en cantidad de comandos aplicados como la cantidad de dispositivos a los cuales se les envia el comandos
+-Restablecimiento a un punto anterior
 <<<<<<< HEAD
 
 =======
@@ -50,14 +51,14 @@ eieManager:
 Paso 4:
 
 Estimacion en el tiempo del trabajo
-Creacion algoritmo API=
-Aumentar adaptabilidad y ancho de banda de API=
-Aplicación protocolo comunicacion API=
-Diseño de los algoritmos usados por el eieManager=
-Manejo de comandos en transmision/recepcion eieManager=
-Diseño eieDevices y respuestas=
-Definicion de grupos de broadcast =
-*Restablecimiento a un punto anterior
+Creacion algoritmo API=3 semanas
+Aumentar adaptabilidad y ancho de banda de API= 2 semanas
+Aplicación protocolo comunicacion API= 2 semanas
+Diseño de los algoritmos usados por el eieManager=4 semanas
+Manejo de comandos en transmision/recepcion eieManager=2 semanas
+Diseño eieDevices y respuestas=4 semanas
+Definicion de grupos de broadcast =2 semanas
+
 
 =======
 
@@ -72,8 +73,12 @@ Paso 6:
 
 Scope: Un proyecto que permita el manejo de una empresa desde clientes externos,capacidad de trabajar bajo concurrencia y una sumamente adaptable a cambios tanto en software 
 como en metodos de conexion
-tiempo=?
+tiempo=5 meses
 recursos=?
+Paso 7:
+Luego de reunirse con el equipo de stakeholders se aceptó el planeamiento realizado.
+Paso 8:
+Dado que con la filosofía de agile a largo plazo,el proyecto seguirá en desarrollo,dado que se requiere que el proyecto posea gran modificabilidad,los siguientes releases irán enfocados en el grado de cambio y adaptación del EieManager,integración de nuevos comandos y nuevos protocolos de comunicación,tambien se espera mejoras en la cantidad de comandos que se pueden enviar a los devices sin quebrar el sistema de comunicación
 
 **Requerimientos**
 ==================
@@ -380,7 +385,7 @@ Los requerimientos ya fueron calificados por los stakeholders por lo que quedara
 * Caso 2: El cliente envía un comando a un grupo de broadcast.
 
 .. uml::
-    
+
   @startuml
   Client -> APIServer: Command Request
   
