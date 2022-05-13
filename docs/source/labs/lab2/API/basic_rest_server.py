@@ -17,21 +17,27 @@ class Device(BaseModel):
 
 app = FastAPI()
 
-"""Lectura del archivo json que cotiene los devices"""
-with open("devices.json", 'r') as devices_archivo:
-    devices = devices_archivo.read()
+devices_desc = []
+with open('devices.json') as file:
+    dev = json.load(file)
+
+    for devs in dev['devices']:
+        lista = (devs['name'], devs['tipo'])
+
+        devices_desc.append(lista)
 
 devices = {
     name: Device(
         name=name,
-        type_device = tipo,
-        host_port= "127.0.0.1" + str(randint(0000,9999))
+        tipo=tipo,
+        host_port = "127.0.0.1" + ":" + str(randint(0000,9999))
     )
-    for name, tipo in devices
+    for name, tipo in devices_desc
 }
 
 
-@app.post("/items/")
+
+@app.post("/devices/")
 def create_device(device: Device):
     """
     Create a new item and register it
@@ -42,7 +48,7 @@ def create_device(device: Device):
     return device
 
 
-@app.get("/items/")
+@app.get("/devices/")
 def read_devices(first: int = 0, limit: int = 10):
     """
     Get a list of the current items.
@@ -54,7 +60,7 @@ def read_devices(first: int = 0, limit: int = 10):
     return devices_list[first : first + limit]
 
 
-@app.delete("/items/{item_name}")
+@app.delete("/devices/{device_name}")
 def delete_item(device_name: str, status_code=204):
     """
     Unregister and delete item.
@@ -65,7 +71,7 @@ def delete_item(device_name: str, status_code=204):
     del devices[device_name]
 
 
-@app.get("/items/{item_name}")
+@app.get("/devices/{device_name}")
 def read_item(device_name: str):
     """
     Get specific device from name.

@@ -1,12 +1,12 @@
-
 {
-    "DevA": {
-        "tipo":  "",
-        "commands": ""
-    },
-
-    "DevB": {
-        "tipo": "",
-        "commands": ""
-    }
+    "devices": [
+        {
+            "name": "DEVA",
+            "tipo": "Computer"
+        },
+        {
+            "name": "DEVB",
+            "tipo": "Computer"
+        }
+    ]
 }
