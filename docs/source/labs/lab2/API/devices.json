@@ -1,12 +1,16 @@
 {
-    "dev1": [
+    "DEV1": [
         {
-            "name": "DEVA",
-            "tipo": "Computer"
+            "name": "Asus-3050",
+            "tipo": "Computer",
+            "commands": ["read", "write", "upload"],
+            "ip_host": "127.0.0.7:1234"
         }],
     
-    "dev2":    [{
-            "name": "DEVB",
-            "tipo": "Computer"
+    "DEV2":    [{
+            "name": "Lenovo-Thinkpad 0001",
+            "tipo": "Computer",
+            "commands": ["read", "write", "upload"],
+            "ip_host": "127.0.0.7:2222"
         }]
 }
