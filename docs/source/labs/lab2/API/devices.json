@@ -1,12 +1,12 @@
 {
-    "devices": [
+    "dev1": [
         {
             "name": "DEVA",
             "tipo": "Computer"
-        },
-        {
+        }],
+    
+    "dev2":    [{
             "name": "DEVB",
             "tipo": "Computer"
-        }
-    ]
+        }]
 }
