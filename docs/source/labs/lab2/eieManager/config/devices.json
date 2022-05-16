@@ -1,0 +1,15 @@
+{
+    "devices": [
+        {"identificator": "DEV1",
+        "name": "Asus-Vivobook",
+        "dtype": "computer",
+        "commands_s": ["read", "write", "upload"],
+        "ip_host": "127.0.0.1:1111"},
+
+        {"identificator": "DEV2",
+        "name": "Lenovo Thinkpad",
+        "dtype": "computer",
+        "commands_s": ["read", "write", "upload"],
+        "ip_host": "158.0.0.1:2222"}
+    ]
+}
