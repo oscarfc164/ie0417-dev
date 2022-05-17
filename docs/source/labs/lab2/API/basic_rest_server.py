@@ -26,29 +26,21 @@ with open("devices.json") as filename:
 
 
 
-@app.post("/devices/")
+@app.post("/devices/", status_code= 201)
 def create_device(device: Device):
     """
     Create a new item and register it
-
     :param device, new device to register.
     """
-    num_inde = len(devices.keys())
-    indentificator = "DEV" + str(num_inde + 1)
 
-    devices[indentificator] = [
-        {"name": device.name,
-        "tipo": device.type_device,
-        "commands": device.commands_s}
-    ]
-
-
+    devices[device.name] = device
+    return device
+    
 
 @app.get("/devices/")
 def read_devices(first: int = 0, limit: int = 10):
     """
     Get a list of the current items.
-
     :param int first: First list element to get (optional).
     :param int limit: Maximum number of elements to get (optional).
     """
@@ -57,23 +49,21 @@ def read_devices(first: int = 0, limit: int = 10):
     
 
 
-@app.delete("/devices/{device_name}")
-def delete_item(indetificador: str, status_code=204):
+@app.delete("/devices/{identificator}")
+def delete_item(identificador: str, status_code=204):
     """
     Unregister and delete item.
-
     :param str device_name: Name of the device to delete.
     :param int status_code: Default HTTP status code to return.
     """
-    del devices[indetificador]
-    
+    devices.pop(identificador)
+    return devices
 
-
-@app.get("/devices/{device_name}")
+@app.get("/devices/{identificator}")
 def read_item(identificator: str):
     """
-    Get specific device from name.
-
+    Get specific device from identificator.
     :param str item_name: Name of the device to get.
     """
-    return devices[identificator]
+    device = devices[identificator]
+    return device
