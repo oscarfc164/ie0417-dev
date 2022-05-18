@@ -1,10 +1,7 @@
-from typing import Optional
 from abc import ABC, abstractmethod
-from unicodedata import name
 
 from numpy import dtype
 
-from ..Command import Command
 
 class Device(ABC):
     '''
@@ -70,5 +67,3 @@ class Device(ABC):
         Reads the device an return it read
         '''
         pass
-
-
