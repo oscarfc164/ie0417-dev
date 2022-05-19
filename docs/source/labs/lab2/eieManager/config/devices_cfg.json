@@ -1,14 +1,12 @@
 {
     "devices": [
-        {"identificator": "DEV1",
-        "name": "Asus-Vivobook",
+        {"name": "AsusVivobook",
         "dtype": "computer",
         "commands_s": ["read", "write", "upload"],
         "ip_host": "127.0.0.1:1111"},
 
-        {"identificator": "DEV2",
-        "name": "Lenovo Thinkpad",
-        "dtype": "computer",
+        {"name": "SamsungS21",
+        "dtype": "smartphone",
         "commands_s": ["read", "write", "upload"],
         "ip_host": "158.0.0.1:2222"}
     ]

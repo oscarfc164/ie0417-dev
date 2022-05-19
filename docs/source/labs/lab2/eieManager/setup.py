@@ -110,7 +110,7 @@ setup(
     # Entry points
     entry_points={
         'console_scripts': [
-            'sensor_cmds=sensor_commands.main:main',
+            'device_cmds=eie_commands.main:main',
         ],
     }
 )

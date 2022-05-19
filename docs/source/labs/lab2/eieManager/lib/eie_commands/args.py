@@ -60,12 +60,12 @@ def parse_args(argv=None):
 
     parser.add_argument(
         '-c', '--config',
-        default="config/device_cfg.json",
+        default="./config/devices_cfg.json",
         help='Device configuration file',
     )
     parser.add_argument(
         '-t', '--device_type',
-        default="computer",
+        default="smartphone",
         help='Device type to read',
     )
 
