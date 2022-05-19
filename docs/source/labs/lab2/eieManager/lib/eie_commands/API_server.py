@@ -2,15 +2,11 @@
 REST API using FASTAPI for eieManager
 """
 
-from ntpath import join
-from fastapi import FastAPI, Body
-from random import randint
-from typing import Dict, Optional
+from typing import Dict
+from unicodedata import name
+from fastapi import FastAPI
 from pydantic import BaseModel
-import json
-from .args import parse_args
 from .device.manager import DeviceManager
-from .command import CommandRunner
 
 
 class Device(BaseModel):
@@ -19,9 +15,11 @@ class Device(BaseModel):
     commands_s: list
     host_port: str
 
+
 app = FastAPI()
 
 device_mgr = DeviceManager("../config/devices_cfg.json")
+
 
 @app.post("/devices/")
 def create_device(device: Device):
@@ -30,10 +28,10 @@ def create_device(device: Device):
 
     :param device, new device to register.
     """
-    actual_dict = device_mgr.read_devices()
-    new_dict = device_mgr.add_device()
-    add_dict = actual_dict[new_dict]
-    return add_dict
+    
+
+    new_dict = device_mgr.add_device(device)
+    return new_dict
 
 
 @app.get("/devices/")
@@ -46,6 +44,7 @@ def read_devices() -> Dict:
     """
     return device_mgr.read_devices()
 
+
 @app.delete("/devices/{device_name}")
 def delete_item(device_name: str, status_code=204):
     """
@@ -56,6 +55,7 @@ def delete_item(device_name: str, status_code=204):
     """
     dict_delete = device_mgr.delete_device()
     return dict_delete
+
 
 @app.get("/devices/{device_name}")
 def read_item(device_name: str):
