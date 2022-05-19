@@ -23,12 +23,6 @@ def main():
     resp = requests.get(f"{url}/devices/")
     pprint_response(resp)
 
-    print("Prueba 2: Imprime todos los devices filtrando")
-    wait_enter()
-    query = {'first': 0, 'limit': 1}
-    resp = requests.get(f"{url}/devices/", params=query)
-    pprint_response(resp)
-
     print("Prueba 3: Crea un nuevo device y imprime la lista")
     wait_enter()
     new_item = {
