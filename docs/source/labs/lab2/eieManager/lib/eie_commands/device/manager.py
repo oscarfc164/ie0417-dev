@@ -53,6 +53,11 @@ class DeviceManager:
                 self.devices[name] = self.device_factory(name, dtype)
         self._init_devices_per_type()
 
+    def read_devices(self):
+        with open(self.config_filename) as config_filename:
+            device_info = json.load(config_filename)
+            return device_info
+        
 
     def add_device(
         self, 
@@ -70,10 +75,8 @@ class DeviceManager:
             "commands_s": commands_s,
             "ip_host": ip_host
         }
-        self.devices[name] = self.device_factory(name, dtype, commands_s, ip_host
-        )
 
-        return self.devices
+        return new_device
     
     def delete_device(self, name:str) -> Dict:
         """
