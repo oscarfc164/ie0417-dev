@@ -1,0 +1,12 @@
+{
+    "devices": [
+        {
+            "name": "DEVA",
+            "tipo": "Computer"
+        },
+        {
+            "name": "DEVB",
+            "tipo": "Computer"
+        }
+    ]
+}
