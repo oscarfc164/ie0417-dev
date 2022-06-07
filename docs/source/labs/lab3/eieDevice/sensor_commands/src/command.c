@@ -6,7 +6,7 @@
 
 #define MSG_CMD_MAX_SIZE 256
 
-struct Command *command_create(void *data, cmd_exec_fn execute)
+struct Command *command_create(void *data, cmd_exec_fn execute, const char *name, void *priv, const char *req_msg, char *resp_msg)
 {
     struct Command *cmd =
         (struct Command *)calloc(1, sizeof(struct Command));
@@ -25,7 +25,7 @@ struct Command *command_create(void *data, cmd_exec_fn execute)
     return cmd;
 }
 
-void command_execute(struct Command *cmd)
+void command_execute(const char *name, void *priv, const char *req_msg, char *resp_msg)
 {
     cmd->execute(cmd->data);
 }
