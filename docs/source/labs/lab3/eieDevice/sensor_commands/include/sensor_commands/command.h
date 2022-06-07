@@ -1,8 +1,9 @@
 #ifndef COMMAND_H_
 #define COMMAND_H_
+#include <cjson/cJSON.h>
 
 /** Type of the function that a command can execute */
-typedef void (*cmd_exec_fn)(void *data);
+typedef void (*cmd_exec_fn)(const char *name, void *priv, const char *req_msg, char *resp_msg);
 
 /** Command structure definition */
 struct Command {
@@ -23,21 +24,21 @@ struct Command {
  *
  * @return Pointer to a command structure.
  */
-struct Command *command_create(void *data, cmd_exec_fn execute);
+struct Command *command_create(const char *name, void *priv, const char *req_msg, char *resp_msg);
 
 /**
  * Executes the command function
  *
  * @param cmd command structure.
  */
-void command_execute(struct Command *cmd);
+void command_execute(const char *name, void *priv, const char *req_msg, char *resp_msg);
 
 /**
  * Destroys the command
  *
  * @param cmd command structure.
  */
-void command_destroy(struct Command *cmd);
+void command_destroy(const char *name, void *priv, const char *req_msg, char *resp_msg);
 
 /**
  * Creates a message command
@@ -49,6 +50,6 @@ void command_destroy(struct Command *cmd);
  *
  * @return Pointer to a command structure.
  */
-struct Command *msg_command_create(const char *msg);
+struct Command *msg_command_create(const char *name, void *priv, const char *req_msg, char *resp_msg);
 
 #endif // COMMAND_H_
