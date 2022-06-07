@@ -20,16 +20,16 @@ enum test_msg_type {
   TEST_MSG_TYPE_MAX,
 };
 
-/* Message request structure */
-struct cmd_requst_hdr {
-    char cmd_name [100];
-    uint32_t payload_size;
+/* Message request structure */ 
+struct test_msg_req {
+    uint8_t type;
+    uint32_t val;
 } __attribute__((packed));
 
 /* Message response structure */
 struct test_msg_rep {
-    char answer [100];
-    uint32_t answer_size;
+    uint64_t val_a;
+    uint8_t val_b;
 } __attribute__((packed));
 
 /* Server thread data */
@@ -50,8 +50,8 @@ void* msg_server_fn(void *arg)
     /* Loop processing messages while CZMQ is not interrupted */
     while (!zsys_interrupted) {
         zframe_t *req_frame, *rep_frame;
-        struct cmd_request_hdr *header;
-        struct cmd_request_hdr *payload;
+        struct test_msg_req *req;
+        struct test_msg_rep *rep;
 
         // Block waiting for a new message frame
         req_frame = zframe_recv(rdata->server);
@@ -59,21 +59,17 @@ void* msg_server_fn(void *arg)
             fprintf(stderr, "req_frame is NULL\n");
             goto out;
         }
-        header = (struct cmd_request_hdr *)zframe_data(req_frame);
+        req = (struct test_msg_req *)zframe_data(req_frame);
 
-        printf("Received request [command: %s, size: %u, payload: %s]\n",
-               header->cmd_name, header->payload_size);
+        printf("Received request [type: %hhu, val: %u]\n",
+               req->type, req->val);
 
         rep_frame = zframe_new(NULL, sizeof(struct test_msg_rep));
         rep = (struct test_msg_rep *)zframe_data(rep_frame);
 
         // Write response data
-        for (int i = 0; i<=strlen(header -> header); i++){
-            rep -> answer[i] = header-> cmd_name[i];
-            rep -> answer_size[i] = header -> payload_size;
-        }
-
-
+        rep->val_a = req->val + 10;
+        rep->val_b = req->val * req->type;
 
         // No longer need request frame
         zframe_destroy(&req_frame);
