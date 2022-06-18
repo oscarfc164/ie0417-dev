@@ -1,0 +1,90 @@
+action: GLOB, msg: packaging
+cwd: /home/steven/Desktop/ie0417-dev/docs/source/labs/lab4/sensor_commands
+cmd: /usr/bin/python3 setup.py sdist --formats=zip --dist-dir /home/steven/Desktop/ie0417-dev/docs/source/labs/lab4/sensor_commands/.tox/dist
+running sdist
+running egg_info
+creating lib/sensor_commands.egg-info
+writing lib/sensor_commands.egg-info/PKG-INFO
+writing dependency_links to lib/sensor_commands.egg-info/dependency_links.txt
+writing entry points to lib/sensor_commands.egg-info/entry_points.txt
+writing requirements to lib/sensor_commands.egg-info/requires.txt
+writing top-level names to lib/sensor_commands.egg-info/top_level.txt
+writing manifest file 'lib/sensor_commands.egg-info/SOURCES.txt'
+reading manifest file 'lib/sensor_commands.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files found matching 'test/*'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[co]' found anywhere in distribution
+writing manifest file 'lib/sensor_commands.egg-info/SOURCES.txt'
+running check
+creating sensor_commands-0.0.1
+creating sensor_commands-0.0.1/config
+creating sensor_commands-0.0.1/lib
+creating sensor_commands-0.0.1/lib/sensor_commands
+creating sensor_commands-0.0.1/lib/sensor_commands.egg-info
+creating sensor_commands-0.0.1/lib/sensor_commands/sensor
+creating sensor_commands-0.0.1/lib/sensor_commands/sensor/analyzers
+creating sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors
+copying files to sensor_commands-0.0.1...
+copying LICENSE -> sensor_commands-0.0.1
+copying MANIFEST.in -> sensor_commands-0.0.1
+copying README.md -> sensor_commands-0.0.1
+copying requirements.txt -> sensor_commands-0.0.1
+copying setup.py -> sensor_commands-0.0.1
+copying config/sensors_cfg.json -> sensor_commands-0.0.1/config
+copying lib/sensor_commands/__init__.py -> sensor_commands-0.0.1/lib/sensor_commands
+copying lib/sensor_commands/args.py -> sensor_commands-0.0.1/lib/sensor_commands
+copying lib/sensor_commands/command.py -> sensor_commands-0.0.1/lib/sensor_commands
+copying lib/sensor_commands/main.py -> sensor_commands-0.0.1/lib/sensor_commands
+copying lib/sensor_commands.egg-info/PKG-INFO -> sensor_commands-0.0.1/lib/sensor_commands.egg-info
+copying lib/sensor_commands.egg-info/SOURCES.txt -> sensor_commands-0.0.1/lib/sensor_commands.egg-info
+copying lib/sensor_commands.egg-info/dependency_links.txt -> sensor_commands-0.0.1/lib/sensor_commands.egg-info
+copying lib/sensor_commands.egg-info/entry_points.txt -> sensor_commands-0.0.1/lib/sensor_commands.egg-info
+copying lib/sensor_commands.egg-info/requires.txt -> sensor_commands-0.0.1/lib/sensor_commands.egg-info
+copying lib/sensor_commands.egg-info/top_level.txt -> sensor_commands-0.0.1/lib/sensor_commands.egg-info
+copying lib/sensor_commands/sensor/__init__.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor
+copying lib/sensor_commands/sensor/manager.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor
+copying lib/sensor_commands/sensor/sensor.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor
+copying lib/sensor_commands/sensor/analyzers/__init__.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor/analyzers
+copying lib/sensor_commands/sensor/analyzers/avg_thresh_analyzer.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor/analyzers
+copying lib/sensor_commands/sensor/sensors/__init__.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors
+copying lib/sensor_commands/sensor/sensors/level.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors
+copying lib/sensor_commands/sensor/sensors/temp.py -> sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors
+Writing sensor_commands-0.0.1/setup.cfg
+creating /home/steven/Desktop/ie0417-dev/docs/source/labs/lab4/sensor_commands/.tox/dist
+creating '/home/steven/Desktop/ie0417-dev/docs/source/labs/lab4/sensor_commands/.tox/dist/sensor_commands-0.0.1.zip' and adding 'sensor_commands-0.0.1' to it
+adding 'sensor_commands-0.0.1'
+adding 'sensor_commands-0.0.1/config'
+adding 'sensor_commands-0.0.1/lib'
+adding 'sensor_commands-0.0.1/PKG-INFO'
+adding 'sensor_commands-0.0.1/LICENSE'
+adding 'sensor_commands-0.0.1/setup.cfg'
+adding 'sensor_commands-0.0.1/requirements.txt'
+adding 'sensor_commands-0.0.1/setup.py'
+adding 'sensor_commands-0.0.1/README.md'
+adding 'sensor_commands-0.0.1/MANIFEST.in'
+adding 'sensor_commands-0.0.1/config/sensors_cfg.json'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info'
+adding 'sensor_commands-0.0.1/lib/sensor_commands'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info/PKG-INFO'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info/SOURCES.txt'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info/entry_points.txt'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info/top_level.txt'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info/requires.txt'
+adding 'sensor_commands-0.0.1/lib/sensor_commands.egg-info/dependency_links.txt'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/__init__.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/main.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/command.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/args.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/analyzers'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/__init__.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/sensor.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/manager.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/analyzers/__init__.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/analyzers/avg_thresh_analyzer.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors/__init__.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors/temp.py'
+adding 'sensor_commands-0.0.1/lib/sensor_commands/sensor/sensors/level.py'
+removing 'sensor_commands-0.0.1' (and everything under it)
