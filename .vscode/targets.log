@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jun 20 17:13:41 2022
+# Make data base, printed on Tue Jun 21 17:41:55 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/share/code/code
 # environment
-JOURNAL_STREAM = 8:43790
+JOURNAL_STREAM = 8:51481
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-zorin:/etc/xdg
 # makefile
@@ -71,7 +71,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 1655
+MANAGERPID = 2611
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -89,7 +89,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-SESSION_MANAGER = local/steven-ThinkPad-Twist:@/tmp/.ICE-unix/1923,unix/steven-ThinkPad-Twist:/tmp/.ICE-unix/1923
+SESSION_MANAGER = local/steven-ThinkPad-Twist:@/tmp/.ICE-unix/2857,unix/steven-ThinkPad-Twist:/tmp/.ICE-unix/2857
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -99,7 +99,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = da624ef3bf2a4838bab4158039831cb8
+INVOCATION_ID = c046cb75bc5944f79c45e11e59a08471
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -109,7 +109,7 @@ XDG_SESSION_DESKTOP = zorin
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 32601
+GIO_LAUNCHED_DESKTOP_FILE_PID = 15475
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,7 +123,7 @@ QT_QPA_PLATFORMTHEME = gtk3
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1885
+SSH_AGENT_PID = 2817
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = zorin:GNOME
 # environment
@@ -161,7 +161,7 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = zorin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a808a8f9-80d4-4441-a700-9839b10e1685.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-3c66dbac-e2a4-4077-91e2-ef00d4b35eb4.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -231,7 +231,7 @@ LC_ADDRESS = es_CR.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 32601
+VSCODE_PID = 15475
 # variable set hash-table stats:
 # Load=110/1024=11%, Rehash=0, Collisions=18/132=14%
 
@@ -300,6 +300,6 @@ GNUmakefile:
 # strcache performance: lookups = 26 / hit rate = 11%
 # hash-table stats:
 # Load=23/8192=0%, Rehash=0, Collisions=1/26=4%
-# Finished Make data base on Mon Jun 20 17:13:41 2022
+# Finished Make data base on Tue Jun 21 17:41:55 2022
 
  
