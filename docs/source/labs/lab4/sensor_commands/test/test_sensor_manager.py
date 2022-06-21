@@ -1,12 +1,13 @@
 from pytest import fixture
 from utils import rand_gen
-from sensor import SensorManager
-
 
 @fixture
-def sensor_mgr():
-    # utilizo el archivo json de config 
-    return SensorManager
+def sensor_mgr(example_mod_fixt, example_func_fixt):
+    logging.info("Fixture 1 setup!")
+    logging.info(f"example_mod_fixt: {example_mod_fixt}")
+    logging.info(f"example_func_fixt: {example_func_fixt}")
+    ctx = DemoFixtureContext()
+    return ctx
 
 
 def test_sensor_manager_supported_types():
@@ -27,7 +28,7 @@ def test_sensor_manager_single_sensor_read_command():
 
 
 
-    class MockSensor: #ESTA CLASE TIENE QUE IR AL PRINCIPIO DEL CODIGO
+    class MockSensor:
     def __init__(self, name: str, stype: str, unit: str) -> None:
         self._name = name
         self._type = stype
