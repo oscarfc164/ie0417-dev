@@ -11,7 +11,6 @@ lib/sensor_commands/main.py
 lib/sensor_commands.egg-info/PKG-INFO
 lib/sensor_commands.egg-info/SOURCES.txt
 lib/sensor_commands.egg-info/dependency_links.txt
-lib/sensor_commands.egg-info/entry_points.txt
 lib/sensor_commands.egg-info/requires.txt
 lib/sensor_commands.egg-info/top_level.txt
 lib/sensor_commands/sensor/__init__.py

@@ -1,8 +1,8 @@
 from pytest import fixture
-from utils import rand_gen
 from sensor_commands.sensor import manager, sensor
 import logging
 import pytest
+
 
 class MockSensor(sensor.Sensor):
     def __init__(self, name: str) -> None:
@@ -22,15 +22,18 @@ class MockSensor(sensor.Sensor):
 
 @fixture
 def sensor_mgr():
-    file_name = "/home/stevenmb/disenosoftware/ie0417-dev/docs/source/labs/lab4/sensor_commands/config/sensors_cfg.json"
+    file_name = "/home/dev/ws/docs/source/labs/lab4/sensor_commands/config/sensors_cfg.json"
+
     logging.info("Instancing a sensor manager")
     sensor_manager = manager.SensorManager(file_name)
     return sensor_manager
+
 
 # 1
 def test_sensor_manager_supported_types(sensor_mgr):
     logging.info("Getting suported types: ")
     print(sensor_mgr.get_supported_sensor_types())
+
 
 # 2
 def test_sensor_manager_single_sensor_create_destroy(sensor_mgr):
@@ -43,6 +46,7 @@ def test_sensor_manager_single_sensor_create_destroy(sensor_mgr):
     with pytest.raises(AssertionError):
         sensor_mgr.destroy_sensor("objetoo")
 
+
 # 3
 def test_sensor_manager_single_sensor_read_command(sensor_mgr):
     sensor_mgr.create_sensor("pruebatemp", "temperature")
@@ -53,6 +57,7 @@ def test_sensor_manager_single_sensor_read_command(sensor_mgr):
     # Then destroy the sensor created
     sensor_mgr.destroy_sensor("pruebatemp")
 
+
 # 4
 def test_sensor_manager_mock_type_register_unregister(sensor_mgr):
     logging.info("TEST MOCK REGISTER-UNREGISTER")
@@ -60,6 +65,7 @@ def test_sensor_manager_mock_type_register_unregister(sensor_mgr):
     sensor_mgr.register_sensor_type(mock.name(), mock)
     print("Getting supported types:", sensor_mgr.get_supported_sensor_types())
     sensor_mgr.unregister_sensor_type(mock.type())
+
 
 # 5
 def test_sensor_manager_mock_sensor_create_destroy(sensor_mgr):
@@ -75,6 +81,7 @@ def test_sensor_manager_mock_sensor_create_destroy(sensor_mgr):
     sensor_mgr.destroy_sensor("mock")
     # UNREGISTER
     sensor_mgr.unregister_sensor_type(mock.type())
+
 
 # 6
 def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
