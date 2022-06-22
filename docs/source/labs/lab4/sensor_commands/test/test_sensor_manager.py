@@ -1,113 +1,96 @@
 from pytest import fixture
 from utils import rand_gen
+from sensor_commands.sensor import manager, sensor
+import logging
+import pytest
+
+class MockSensor(sensor.Sensor):
+    def __init__(self, name: str) -> None:
+        super().__init__(name, "mock", "fakes")
+        self._readed = 0
+
+    def read(self) -> float:
+        self._readed = 1
+        return self._readed
+
+    def assert_read(self) -> int:
+        if(self._readed):
+            return 1
+        else:
+            return 0
+
 
 @fixture
-def sensor_mgr(example_mod_fixt, example_func_fixt):
-    logging.info("Fixture 1 setup!")
-    logging.info(f"example_mod_fixt: {example_mod_fixt}")
-    logging.info(f"example_func_fixt: {example_func_fixt}")
-    ctx = DemoFixtureContext()
-    return ctx
+def sensor_mgr():
+    file_name = "/home/stevenmb/disenosoftware/ie0417-dev/docs/source/labs/lab4/sensor_commands/config/sensors_cfg.json"
+    logging.info("Instancing a sensor manager")
+    sensor_manager = manager.SensorManager(file_name)
+    return sensor_manager
 
+# 1
+def test_sensor_manager_supported_types(sensor_mgr):
+    logging.info("Getting suported types: ")
+    print(sensor_mgr.get_supported_sensor_types())
 
-def test_sensor_manager_supported_types():
-    get_supported_sensor_stypes
+# 2
+def test_sensor_manager_single_sensor_create_destroy(sensor_mgr):
+    logging.info("Creating and destroying")
+    sensor_mgr.create_sensor("objetoo", "level")
+    print("getting sensors info: ", sensor_mgr.get_sensors_info())
+    with pytest.raises(AssertionError):
+        sensor_mgr.create_sensor("objetoo", "level")
+    sensor_mgr.destroy_sensor("objetoo")
+    with pytest.raises(AssertionError):
+        sensor_mgr.destroy_sensor("objetoo")
 
+# 3
+def test_sensor_manager_single_sensor_read_command(sensor_mgr):
+    sensor_mgr.create_sensor("pruebatemp", "temperature")
+    sensor_read = sensor_mgr.create_sensor_read_cmd("pruebatemp")
+    # Now will execute
+    print("EXECUTING SENSOR_READ")
+    sensor_read.execute()
+    # Then destroy the sensor created
+    sensor_mgr.destroy_sensor("pruebatemp")
 
-def test_sensor_manager_single_sensor_create_destroy():
-    create_sensor
-    get_sensor_info
+# 4
+def test_sensor_manager_mock_type_register_unregister(sensor_mgr):
+    logging.info("TEST MOCK REGISTER-UNREGISTER")
+    mock = MockSensor("mock")
+    sensor_mgr.register_sensor_type(mock.name(), mock)
+    print("Getting supported types:", sensor_mgr.get_supported_sensor_types())
+    sensor_mgr.unregister_sensor_type(mock.type())
 
-    destroy_sensor
+# 5
+def test_sensor_manager_mock_sensor_create_destroy(sensor_mgr):
+    logging.info("TEST MOCK CREATE-DESTROY")
+    mock = MockSensor("mock")
+    # Register
+    sensor_mgr.register_sensor_type(mock.name(), MockSensor)
+    print("Getting supported types:", sensor_mgr.get_supported_sensor_types())
+    # Create
+    sensor_mgr.create_sensor(mock.name(), mock.type())
+    print("Getting sensors info with mock sensor", sensor_mgr.get_sensors_info())
+    # Destroy
+    sensor_mgr.destroy_sensor("mock")
+    # UNREGISTER
+    sensor_mgr.unregister_sensor_type(mock.type())
 
-
-def test_sensor_manager_single_sensor_read_command():
-    create_sensor
-    destroy_sensor
-
-
-
-
-    class MockSensor:
-    def __init__(self, name: str, stype: str, unit: str) -> None:
-        self._name = name
-        self._type = stype
-        self._unit = unit
-
-    def name(self) -> str:
-        """
-        Gets the name of the sensor.
-        """
-        return self._name
-
-    def type(self) -> str:
-        """
-        Gets the type of the sensor.
-        """
-        return self._type
-
-    def unit(self) -> str:
-        """
-        Gets the unit of the sensor.
-        """
-        return self._unit
-
-    def test_sensor_manager_mock_type_register_unregister():
-    
-    
-    def test_sensor_manager_mock_sensor_create_destroy():
-
-
-    def test_sensor_manager_mock_sensor_read_command():
-    
-    
-    
-    @abstractmethod
-    def read(self) -> float:
-        """
-        Reads the sensor.
-        :return: Sensor reading.
-        """
-        pass
-
-
-class SensorAnalyzer(ABC):
-    """
-    Generic sensor analyzer that processes updates from sensor reads.
-    """
-    @abstractmethod
-    def update(self, value: float):
-        """
-        Updates the analyzer state with a new sensor reading.
-        :param float value: Sensor reading value.
-        """
-        pass
-
-
-class SensorReadCommand(Command):
-    """
-    Command to read a Sensor and optionally update a SensorAnalyzer.
-    :param sensor: Sensor object.
-    :type sensor: :class:`Sensor`
-    :param analyzer: SensorAnalyzer object or None.
-    :type analyzer: :class:`SensorAnalyzer` or None.
-    """
-    def __init__(
-            self,
-            sensor: Sensor,
-            analyzer: Optional[SensorAnalyzer] = None
-    ) -> None:
-        self.sensor = sensor
-        self.analyzer = analyzer
-
-    def execute(self) -> None:
-        """
-        Reads the sensor and optionally send value to analyzer.
-        """
-        name = self.sensor.name()
-        stype = self.sensor.type()
-        unit = self.sensor.unit()
-        value = self.sensor.read()
-        if self.analyzer is not None:
-            self.analyzer.update(value)
-        print(f"SensorReadCommand: [{stype}] {name}: {value} {unit}")
+# 6
+def test_sensor_manager_mock_sensor_read_command(sensor_mgr):
+    logging.info("TEST MOCK READ CMD")
+    mock = MockSensor("mock")
+    # Register
+    sensor_mgr.register_sensor_type(mock.name(), MockSensor)
+    # Create
+    sensor_mgr.create_sensor(mock.name(), mock.type())
+    sensor_read = sensor_mgr.create_sensor_read_cmd(mock.name())
+    # Execute
+    print("EXECUTING SENSOR_READ")
+    sensor_read.execute()
+    # Assert read
+    assert sensor_mgr.sensors[mock.name()].assert_read() == 1, "Not read"
+    # Destroy
+    sensor_mgr.destroy_sensor(mock.name())
+    # UNREGISTER
+    sensor_mgr.unregister_sensor_type(mock.type())

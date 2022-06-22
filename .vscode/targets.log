@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 17:41:55 2022
+# Make data base, printed on Tue Jun 21 18:46:01 2022
 
 # Variables
 
@@ -41,7 +41,7 @@ GDMSESSION = zorin
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/steven/Desktop/ie0417-dev
+CURDIR := /home/stevenmb/disenosoftware/ie0417-dev
 # makefile
 SHELL = /bin/sh
 # environment
@@ -49,7 +49,7 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/share/code/code
 # environment
-JOURNAL_STREAM = 8:51481
+JOURNAL_STREAM = 8:45138
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-zorin:/etc/xdg
 # makefile
@@ -59,37 +59,35 @@ MAKEFILE_LIST :=
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # environment
-USERNAME = steven
+USERNAME = stevenmb
 # environment
 MAKELEVEL := 0
 # environment
-MANDATORY_PATH = /usr/share/gconf/zorin.mandatory.path
-# environment
-XDG_DATA_DIRS = /usr/share/zorin:/home/steven/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_DATA_DIRS = /usr/share/zorin:/home/stevenmb/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 2611
+MANAGERPID = 1287
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 LC_NAME = es_CR.UTF-8
 # environment
-VSCODE_CWD = /home/steven
+VSCODE_CWD = /home/stevenmb
 # environment
 QT_STYLE_OVERRIDE = adwaita
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/steven/.local/bin:/home/steven/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/stevenmb/.local/bin:/home/stevenmb/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-SESSION_MANAGER = local/steven-ThinkPad-Twist:@/tmp/.ICE-unix/2857,unix/steven-ThinkPad-Twist:/tmp/.ICE-unix/2857
+SESSION_MANAGER = local/stevenmbdesktop:@/tmp/.ICE-unix/1574,unix/stevenmbdesktop:/tmp/.ICE-unix/1574
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -99,7 +97,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = c046cb75bc5944f79c45e11e59a08471
+INVOCATION_ID = 1e7e183102c84a72937be88997687374
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -109,7 +107,7 @@ XDG_SESSION_DESKTOP = zorin
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 15475
+GIO_LAUNCHED_DESKTOP_FILE_PID = 8001
 # automatic
 %F = $(notdir $%)
 # environment
@@ -117,13 +115,13 @@ DISPLAY = :0
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/steven/Desktop/ie0417-dev
+PWD = /home/stevenmb/disenosoftware/ie0417-dev
 # environment
 QT_QPA_PLATFORMTHEME = gtk3
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 2817
+SSH_AGENT_PID = 1539
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = zorin:GNOME
 # environment
@@ -131,13 +129,13 @@ GTK_MODULES = gail:atk-bridge
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-HOME = /home/steven
+HOME = /home/stevenmb
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
-VSCODE_CODE_CACHE_PATH = /home/steven/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = /home/stevenmb/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
-LOGNAME = steven
+LOGNAME = stevenmb
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
@@ -161,11 +159,11 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = zorin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-3c66dbac-e2a4-4077-91e2-ef00d4b35eb4.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-73a7d8a6-1f67-48ab-8634-dd5978bf8eb1.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
-USER = steven
+USER = stevenmb
 # environment
 LC_MONETARY = es_CR.UTF-8
 # makefile
@@ -183,7 +181,7 @@ MAKE_COMMAND := make
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-ca686eba-1.68.1-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-71bac4ae-1.68.1-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -198,8 +196,6 @@ GDK_BACKEND = x11
 LC_PAPER = es_CR.UTF-8
 # environment
 QT_ACCESSIBILITY = 1
-# environment
-DEFAULTS_PATH = /usr/share/gconf/zorin.default.path
 # default
 MAKEFILES := 
 # environment
@@ -231,9 +227,9 @@ LC_ADDRESS = es_CR.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 15475
+VSCODE_PID = 8001
 # variable set hash-table stats:
-# Load=110/1024=11%, Rehash=0, Collisions=18/132=14%
+# Load=108/1024=11%, Rehash=0, Collisions=18/130=14%
 
 # Pattern-specific Variable Values
 
@@ -241,9 +237,9 @@ VSCODE_PID = 15475
 
 # Directories
 
-# . (device 2053, inode 2885223): 15 files, no impossibilities.
+# . (device 2068, inode 7874875): 14 files, no impossibilities.
 
-# 15 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -281,7 +277,6 @@ makefile:
 # Not a target:
 GNUmakefile:
 #  Implicit rule search has been done.
- 
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
@@ -294,12 +289,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 23 / storage = 209 B / avg = 9 B
-# current buf: size = 8162 B / used = 209 B / count = 23 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 204 B / avg = 9 B
+# current buf: size = 8162 B / used = 204 B / count = 22 / avg = 9 B
 
-# strcache performance: lookups = 26 / hit rate = 11%
+# strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
-# Load=23/8192=0%, Rehash=0, Collisions=1/26=4%
-# Finished Make data base on Tue Jun 21 17:41:55 2022
+ 
+# Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
+# Finished Make data base on Tue Jun 21 18:46:01 2022
 
  
