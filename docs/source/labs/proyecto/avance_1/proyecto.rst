@@ -85,4 +85,50 @@ caracteristicas de cada dispositivo.
 ||                          |                      |
 +---------------------------+----------------------+
 
+Diagramas
+=========
 
+*1.* Modificacion de ``configuration``
+
+.. uml::
+
+  @startuml
+  client->Ditto: update request to configuration sent
+  Ditto-> Mosquitto: request packed into a JSON
+  Mosquitto-> eieDevice: MQTT process the configuration 
+  eieDevice->eieDevice: Internal to Proccess to implement the request
+  eieDevice-> Mosquitto: Request Respond
+  Mosquitto->Ditto: Request Respond
+  Ditto->client: Request Respond
+  @enduml
+
+*2.* Modificacion de ``status``
+
+.. uml::
+
+  @startuml
+  client->Ditto: update request to update the status sent
+  Ditto-> Mosquitto: request packed into a JSON
+  Mosquitto-> eieDevice: MQTT process the new status request and sent it to eieDevice
+  eieDevice->eieDevice: Internal to Proccess to implement the request
+  eieDevice-> Mosquitto: Request Respond
+  Mosquitto->Ditto: Request Respond about status
+  Ditto->client: Request Respond status
+  @enduml
+
+*3.* ``eie-device`` publica configuracion incial
+
+.. uml::
+
+  @startuml
+  eieDevice-> Ditto: MQTT Topic get the initial configuration
+  Ditto->Ditto: Convert the initial into a JSON
+  Ditto->eieConfiguration: Get information about the device
+  eieConfiguration->eieConfiguration: Convert it into a hash table
+  eieConfiguration->eieConfiguration: Register completed
+  eieConfiguration->Ditto: device register msg
+  Ditto->eieDevice: device register msg
+  @enduml
+
+  
+    
