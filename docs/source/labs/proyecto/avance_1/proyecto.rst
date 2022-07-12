@@ -71,15 +71,22 @@ Requerimientos funcionales para eie-device:
 ===========================================
 
 **REQ.1** se debe tener soporte de la estructura Thing para albergar los features, configuration y status de los objetos.
+
 **REQ.2** Se debe soportar callbacks para modificar la propiedad configuration en un feature del twin.
+
 **REQ.3** El programa debe soportar la recepcion de mensajes Ditto para actualizar el el Twin del dispositivo mediante MQTT.
+
 **REQ.4** El eie device debe contar de un Device discovery, el cual facilita el mantenimiento del sistema.
 
 Requerimientos funcionales para eie-manager:
 ============================================
+
 **REQ.5** El eie manager debe contar de un Rest API que contenga el Ditto, MQTT y el eie manager config.
-**REQ.6** El programa debe poder administrar dispositivos mediante el uso de un Rest API y un protocolo Ditto
+
+**REQ.6** El programa debe poder administrar dispositivos mediante el uso de un Rest API y un protocolo Ditto.
+
 **REQ.7** El programa debe garantizar la seguridad de acceso a los dispositivos, donde solo los sistemas autorizados puedan acceder o modificar los dispositivos.
+
 **REQ.8** El programa debe ser escalable, para poder administrar muchos dispositivos y tambien, tener la posibilidad de expandirse con el tiempo.
 
 +--------------------------------------------------+
