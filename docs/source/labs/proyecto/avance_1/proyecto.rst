@@ -13,14 +13,9 @@ Avance de proyecto 1
 **Justificacion**
 ================
 
-En este laboratorio se implementara un sistema eieManager 2.0, el cual tendra algunos cambios ya que se necesita que este 
-tenga una estructura la cual permite curbir despliegues a gran escala y con posibilidad de expansion, ya que se quiere manejar 
-una cantidad grande de dispositivos a nivel industrial, para esto, se utilizara una nueva arquitectura llamada MQTT, usando 
-el patron publish/suscribe y como broker el Eclipse Mosquito, para el diseno de loa modelos virtuales de los dispositivos de la
-fabrica se utilizara el concepto de digital twin, que para este proyecto se encontro un framework open-source llamado Eclipse
-Ditto, junto con el proxy para analizar el estado del sistema sin tener que acudir directamente a los dispositivos, esta arquitectura
-cumple ciertos atributos como: modificabilidad dado que se puede modificar el codigo de forma simple y anadir o eliminar dispositivos, y la testeabilidad 
-dado que tiene que ser sometido a una serie de pruebas para que se muestre su efectividad, ahora bien, con respecto al patron broker este tiene basicamente la misma estructura, que consta de un cliente, un broker, y los servers, donde en este caso para el cliente se tiene un cliente, en cuanto el broker corresponderia al eie manager 2.0, el cual lo compone el Ditto, MQTT y eie manager config, y de ultimo en lugar de los servers, se encuentran los eie devices los cuales son los dispositivos que se van a controlar.
+En este laboratorio se implementará un sistema eieManager 2.0, el cual tendrá algunos cambios, ya que se necesita que este tenga una estructura, la cual permite cubrir despliegues a gran escala y con posibilidad de expansión, ya que se quiere manejar una cantidad grande de dispositivos a nivel industrial, para esto, se utilizara un protocolo llamado MQTT, usando el patrón publish/suscribe y como broker el Eclipse Mosquito.
+Para el diseño de los modelos virtuales de los dispositivos de la fábrica se utilizará el concepto de digital twin, que para este proyecto se encontró un framework open-source llamado Eclipse Ditto, junto con el proxy para analizar el estado del sistema sin tener que acudir directamente a los dispositivos, el mismo, cumple ciertos atributos como: modificabilidad dado que se puede modificar el código de forma simple y añadir o eliminar dispositivos, y la testeabilidad dado que tiene que ser sometido a una serie de pruebas para que se muestre su efectividad.
+Ahora bien, con respecto al patrón broker este tiene básicamente la misma estructura, que consta de un cliente, un broker, y los servers, donde en este caso para el cliente se tiene un cliente, en cuanto el broker correspondería al eie manager 2.0, el cual lo compone el Ditto, MQTT y eie manager config, y de último en lugar de los servers, se encuentran los eie devices los cuales son los dispositivos que se van a controlar.
 
 Caracteristicas utiles de Ditto que serviran para el proyecto:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,24 +65,24 @@ caracteristicas de cada dispositivo.
 Requerimientos funcionales para eie-device:
 ===========================================
 
-**REQ.1** se debe tener soporte de la estructura Thing para albergar los features, configuration y status de los objetos.
+**REQ.1** Se debe tener soporte de la estructura Thing para albergar los features, configuration y status de los objetos.
 
 **REQ.2** Se debe soportar callbacks para modificar la propiedad configuration en un feature del twin.
 
-**REQ.3** El programa debe soportar la recepcion de mensajes Ditto para actualizar el el Twin del dispositivo mediante MQTT.
+**REQ.3** El programa debe soportar la recepcion de mensajes Ditto para poder actualizar los Twin
 
-**REQ.4** El eie device debe contar de un Device discovery, el cual facilita el mantenimiento del sistema.
+**REQ.4** Para facilitar el mantenimiento del sistema, se debe contar de un Device discovery
 
 Requerimientos funcionales para eie-manager:
 ============================================
 
 **REQ.5** El eie manager debe contar de un Rest API que contenga el Ditto, MQTT y el eie manager config.
 
-**REQ.6** El programa debe poder administrar dispositivos mediante el uso de un Rest API y un protocolo Ditto.
+**REQ.6** El programa debe poder administrar dispositivos con un Rest API y un protocolo Ditto.
 
-**REQ.7** El programa debe garantizar la seguridad de acceso a los dispositivos, donde solo los sistemas autorizados puedan acceder o modificar los dispositivos.
+**REQ.7** El programa debe garantizar la seguridad de acceso.
 
-**REQ.8** El programa debe ser escalable, para poder administrar muchos dispositivos y tambien, tener la posibilidad de expandirse con el tiempo.
+**REQ.8** El programa debe estar bien documentado para su legibilidad.
 
 +--------------------------------------------------+
 || **Estimacion en el tiempo de trabajo**          |
