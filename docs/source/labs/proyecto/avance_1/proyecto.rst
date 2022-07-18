@@ -112,28 +112,25 @@ Diagramas
 
 .. uml::
 
+
+   
   @startuml
   client->Ditto: update request to configuration sent
   Ditto-> Mosquitto: request packed into a JSON
   Mosquitto-> eieDevice: MQTT process the configuration 
-  eieDevice->eieDevice: Internal to Proccess to implement the request
-  eieDevice-> Mosquitto: Request Respond
-  Mosquitto->Ditto: Request Respond
-  Ditto->client: Request Respond
+
   @enduml
+
 
 *2.* Modificacion de ``status``
 
 .. uml::
 
   @startuml
-  client->Ditto: update request to update the status sent
-  Ditto-> Mosquitto: request packed into a JSON
-  Mosquitto-> eieDevice: MQTT process the new status request and sent it to eieDevice
-  eieDevice->eieDevice: Internal to Proccess to implement the request
-  eieDevice-> Mosquitto: Request Respond
-  Mosquitto->Ditto: Request Respond about status
-  Ditto->client: Request Respond status
+  eieDevice->Mosquitto: update request to update the status sent
+  Mosquitto-> Ditto: request packed into a JSON
+  Ditto-> Client: MQTT process the new status request and sent it to Cliente
+  
   @enduml
 
 *3.* ``eie-device`` publica configuracion incial
