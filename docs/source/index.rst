@@ -22,7 +22,7 @@ funcional de múltiples tecnologías:
 
    getting-started
    labs/labs
-   labs/proyecto/documentacion/proyecto
+   labs/proyecto/documentacion
 
 
 Indices y tablas
