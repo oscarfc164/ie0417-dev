@@ -138,14 +138,16 @@ Diagramas
 .. uml::
 
   @startuml
-  eieDevice-> Ditto: MQTT Topic get the initial configuration
+  eieDevice-> eieConfiguration: MQTT Topic get the initial configuration
   Ditto->Ditto: Convert the initial into a JSON
-  Ditto->eieConfiguration: Get information about the device
+  eieConfiguration->Ditto: Get information about the device
   eieConfiguration->eieConfiguration: Convert it into a hash table
   eieConfiguration->eieConfiguration: Register completed
   eieConfiguration->Ditto: device register msg
   Ditto->eieDevice: device register msg
   @enduml
+
+
 
   
     
